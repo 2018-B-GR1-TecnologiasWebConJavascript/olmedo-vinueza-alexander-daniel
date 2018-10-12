@@ -16,7 +16,7 @@ console.log("dato valor", dato); // undefined
 console.log("dato tipo", typeof dato); // undefined
 console.log("fechaNacimiento", typeof fechaNacimiento); // object
 
-var adrian = {
+var alexander = {
     "nombre":"Alexander",
     'segundoNombre': 'Daniel',
     apellidoPaterno: `Olmedo`,
@@ -28,3 +28,79 @@ var adrian = {
         nombre: "Luli"
     }
 }; //object
+
+console.log(alexander.mascotas.nombre);
+console.log(alexander);
+delete alexander.hijo;
+console.log(alexander);
+alexander.hija = {
+    nombre: '????'
+};
+console.log(alexander.abuelo);
+
+if(true){
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(false){
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(1){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(0){ // Falsy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(-1){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if("a"){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(null){ // Falsy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if({}){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if({nombre:"Alexander"}){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(new Date()){ // Truthy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+
+if(undefined){ // Falsy
+    console.log("Si")
+} else {
+    console.log("No")
+}
+e
