@@ -61,6 +61,30 @@ arregloTotal.splice(arregloTotal.length, 0, ...arregloSiguientesNumeros)
 
 console.log(arregloTotal);
 
+var alexander = {
+    nombre:"Alexander",
+    apellido:"Olmedo"
+};
+var olmedo = {
+    sueldo:1000.1
+};
+var daniel = {
+    edad:23,
+    casado:false,
+    hijos:null,
+    mascota: {
+        nombre:"Luli"
+    }
+};
+
+var alexanderDanielOlmedo = {
+    ...alexander,
+    ...daniel,
+    ...olmedo
+};
+
+console.log(alexanderDanielOlmedo)
+
 // arregloDos.push(7);
 // var indiceSiete = arregloDos.indexOf(7);
 // console.log(arregloUno);
