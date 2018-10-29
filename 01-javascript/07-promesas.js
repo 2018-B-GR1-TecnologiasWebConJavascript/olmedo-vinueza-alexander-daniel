@@ -58,3 +58,33 @@ nuevaPromesa(nombre)
         }
     )
 
+// Ejercicio 06
+
+const appendFilePromise = (nombreArchivo, contenido) => new Promise((resolve, reject) => {
+    fs.readFile(nombreArchivo, 'utf-8', (error, contenidoLeidoDelArchivo) => {
+        if (error) {
+            fs.writeFile(nombreArchivo, contenido, (err) => {
+                if (err) {
+                    reject('Error de escritura...');
+                } else {
+                    //devolver contenido
+                    resolve(contenido)
+                }
+            })
+        } else {
+            fs.writeFile(nombreArchivo, contenidoLeidoDelArchivo + contenido, (err) => {
+                if (err) {
+                    reject('Error de escritura...');
+                } else {
+                    //devolver contenido
+                    resolve(contenidoLeidoDelArchivo + contenido);
+                }
+            })
+        }
+    });
+});
+
+
+appendFilePromise('06-ejemplo.txt', 'Hola amigos')
+    .then(value => console.log(value))
+    .catch(reason => console.log(reason));
