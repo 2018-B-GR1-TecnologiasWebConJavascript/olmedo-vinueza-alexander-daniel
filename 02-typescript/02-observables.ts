@@ -1,23 +1,53 @@
-//import {map} from "rxjs/operators";
+// 02-observables.ts
 
 declare var require: any;
 
 const rxjs = require('rxjs');
 const map = require('rxjs/operators').map;
+const distinct = require('rxjs/operators').distinct;
+const concat = require('rxjs/operators').concat;
 
 const numeros$ = rxjs.of(
     1,
-    "Alexander",
+    "Adrian",
+    "Adrian",
+    1,
     true,
-    {nombre: 'Alexander'},
-    [1,2,3],
-    new Date);
+    true,
+    1,
+    {nombre: 'Adrian'},
+    1,
+    [1, 2, 3],
+    new Date(),
+    // ':)' concat
+);
 
-console.log(numeros$);
+
+const promesita = (correcto) => {
+    return new Promise(
+        (resolve, reject) => {
+            if (correcto) {
+                resolve(':)');
+            } else {
+                reject(':(');
+            }
+        }
+    );
+};
+
+const promesita$ = rxjs.from(promesita(true));
+const promesitaNoOk$ = rxjs.from(promesita(true));
+
 
 numeros$
     .pipe(
-        map((valorActual)=>{
+        concat(promesitaNoOk$), // Reject
+        concat(promesita$), // Resolve
+    )
+    .pipe(
+        distinct(),
+        map(
+            (valorActual) => {
                 return {
                     data: valorActual
                 };
@@ -25,14 +55,22 @@ numeros$
         )
     )
     .subscribe(
-        (ok)=>{
-            console.log('En OK', ok);
+        (ok) => {
+            console.log('En ok', ok);
         },
-        (error)=>{
+        (error) => {
             console.log('Error', error);
         },
-        ()=>{
+        () => { // complete
             console.log('Completado');
-        },
-
+        }
     );
+
+
+
+
+
+
+
+
+
