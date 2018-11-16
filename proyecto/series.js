@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 
+const nommbreArchivo='series.json';
+const fs = require('fs');
+
 const menuPrincipal = {
     name: 'opcionSeleccionada',
     type: 'list',
@@ -41,6 +44,28 @@ const menuBuscarSerie = [
     }
 ];
 
+inicializarBase()
+    .then(value => console.log(value))
+    .catch(reason => console.log(reason));
+
+const agregarSerie = (serie, nombreArchivo) => {
+    return new Promise(((resolve, reject) => {
+            fs.readFile(nombreArchivo,'utf-8',
+                (err) => {
+                    if (err){
+                        reject(err);
+                    } else{
+                        resolve({
+                            mensaje: "Ingresado correctamente",
+                            serie: serie
+                        })
+                    }
+                }
+            )
+        })
+    )
+};
+
 inquirer.prompt(menuPrincipal)
     .then(respuesta => {
     switch (respuesta.opcionSeleccionada) {
@@ -63,3 +88,25 @@ inquirer.prompt(menuPrincipal)
             break;
     }
 });
+
+function inicializarBase() {
+    return new Promise(
+        (resolve, reject) => {
+            fs.readFile('series.json', 'utf-8',
+                (err, contenido) => {
+                    if (err) {
+                        fs.writeFile('bdd.json',
+                            '{"series":[]}',
+                            (err) => {
+                                if (err) {
+                                    reject({mensaje: 'Error'});
+                                }
+                                resolve({mensaje: 'Base ok'});
+                            });
+                    } else {
+                        resolve({mensaje: 'Base ok'});
+                    }
+                });
+        }
+    );
+}
