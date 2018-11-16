@@ -38,9 +38,9 @@ const menuPreguntaSerie = [
 
 const menuBuscarSerie = [
     {
-        name: 'Nombre Comic',
+        name: 'nombreSerieBuscada',
         type: 'input',
-        message: 'Ingresar el nombre del comic'
+        message: 'Ingresar el nombre de la serie'
     }
 ];
 
@@ -60,7 +60,7 @@ inquirer.prompt(menuPrincipal)
                 });
                 break;
             case 'Listar Series':
-                listarSeries()
+                listarSeries(nombreArchivo)
                     .then(value => console.log(value))
                     .catch(reason => console.log(reason));
                 break;
@@ -70,8 +70,10 @@ inquirer.prompt(menuPrincipal)
                 });
                 break;
             case 'Eliminar Serie':
-                inquirer.prompt(menuBuscarSerie).then(answers => {
-                    console.log('\nOpcion 4:');
+                inquirer.prompt(menuBuscarSerie).then(respuesta => {
+                    eliminarSerie(respuesta.nombreSerieBuscada, nombreArchivo)
+                        .then(value => console.log(value))
+                        .catch(reason => console.log(reason));
                 });
                 break;
         }
@@ -126,7 +128,7 @@ const agregarSerie = (serie, nombreArchivo) => {
     )
 };
 
-const listarSeries = () => {
+const listarSeries = (nombreArchivo) => {
     return new Promise(((resolve, reject) => {
             fs.readFile(nombreArchivo, 'utf-8',
                 (err, contenido) => {
@@ -135,6 +137,36 @@ const listarSeries = () => {
                     } else {
                         const bdd = JSON.parse(contenido);
                         resolve(bdd.series);
+                    }
+                }
+            )
+        })
+    )
+};
+
+const eliminarSerie = (nombreSerieBuscada, nombreArchivo) => {
+    return new Promise(((resolve, reject) => {
+            fs.readFile(nombreArchivo, 'utf-8',
+                (err, contenido) => {
+                    if (err) {
+                        reject({mensaje: 'Error leyendo'});
+                    } else {
+                        var bdd = JSON.parse(contenido);
+                        bdd.series = bdd.series.filter(function(serie) {
+                            return serie.nombreSerie.toLowerCase() !== nombreSerieBuscada.toLowerCase();
+                        });
+
+                        fs.writeFile(
+                            nombreArchivo,
+                            JSON.stringify(bdd),
+                            (err) => {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve({mensaje: 'Serie Eliminada'});
+                                }
+                            }
+                        );
                     }
                 }
             )
