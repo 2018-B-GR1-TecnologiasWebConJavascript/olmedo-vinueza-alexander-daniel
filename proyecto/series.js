@@ -60,6 +60,9 @@ inquirer.prompt(menuPrincipal)
                 });
                 break;
             case 'Listar Series':
+                listarSeries()
+                    .then(value => console.log(value))
+                    .catch(reason => console.log(reason));
                 break;
             case 'Editar Serie':
                 inquirer.prompt(menuBuscarSerie).then(answers => {
@@ -116,6 +119,22 @@ const agregarSerie = (serie, nombreArchivo) => {
                                 }
                             }
                         );
+                    }
+                }
+            )
+        })
+    )
+};
+
+const listarSeries = () => {
+    return new Promise(((resolve, reject) => {
+            fs.readFile(nombreArchivo, 'utf-8',
+                (err, contenido) => {
+                    if (err) {
+                        reject({mensaje: 'Error leyendo'});
+                    } else {
+                        const bdd = JSON.parse(contenido);
+                        resolve(bdd.series);
                     }
                 }
             )
