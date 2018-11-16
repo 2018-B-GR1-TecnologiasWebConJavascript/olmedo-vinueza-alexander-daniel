@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
-
-const nommbreArchivo='series.json';
 const fs = require('fs');
+const rxjs = require('rxjs');
+const nombreArchivo = 'series.json';
 
 const menuPrincipal = {
     name: 'opcionSeleccionada',
@@ -48,54 +48,39 @@ inicializarBase()
     .then(value => console.log(value))
     .catch(reason => console.log(reason));
 
-const agregarSerie = (serie, nombreArchivo) => {
-    return new Promise(((resolve, reject) => {
-            fs.readFile(nombreArchivo,'utf-8',
-                (err) => {
-                    if (err){
-                        reject(err);
-                    } else{
-                        resolve({
-                            mensaje: "Ingresado correctamente",
-                            serie: serie
-                        })
-                    }
-                }
-            )
-        })
-    )
-};
 
 inquirer.prompt(menuPrincipal)
     .then(respuesta => {
-    switch (respuesta.opcionSeleccionada) {
-        case 'Agregar Serie':
-            inquirer.prompt(menuPreguntaSerie).then(answers => {
-                console.log('\nOpcion 1:');
-            });
-            break;
-        case 'Listar Series':
-            break;
-        case 'Editar Serie':
-            inquirer.prompt(menuBuscarSerie).then(answers => {
-                console.log('\nOpcion 3:');
-            });
-            break;
-        case 'Eliminar Serie':
-            inquirer.prompt(menuBuscarSerie).then(answers => {
-                console.log('\nOpcion 4:');
-            });
-            break;
-    }
-});
+        switch (respuesta.opcionSeleccionada) {
+            case 'Agregar Serie':
+                inquirer.prompt(menuPreguntaSerie).then(serie => {
+                    agregarSerie(serie, nombreArchivo)
+                        .then(value => console.log(value))
+                        .catch(reason => console.log(reason));
+                });
+                break;
+            case 'Listar Series':
+                break;
+            case 'Editar Serie':
+                inquirer.prompt(menuBuscarSerie).then(answers => {
+                    console.log('\nOpcion 3:');
+                });
+                break;
+            case 'Eliminar Serie':
+                inquirer.prompt(menuBuscarSerie).then(answers => {
+                    console.log('\nOpcion 4:');
+                });
+                break;
+        }
+    });
 
 function inicializarBase() {
     return new Promise(
         (resolve, reject) => {
-            fs.readFile('series.json', 'utf-8',
+            fs.readFile(nombreArchivo, 'utf-8',
                 (err, contenido) => {
                     if (err) {
-                        fs.writeFile('bdd.json',
+                        fs.writeFile(nombreArchivo,
                             '{"series":[]}',
                             (err) => {
                                 if (err) {
@@ -110,3 +95,30 @@ function inicializarBase() {
         }
     );
 }
+
+const agregarSerie = (serie, nombreArchivo) => {
+    return new Promise(((resolve, reject) => {
+            fs.readFile(nombreArchivo, 'utf-8',
+                (err, contenido) => {
+                    if (err) {
+                        reject({mensaje: 'Error leyendo'});
+                    } else {
+                        const bdd = JSON.parse(contenido);
+                        bdd.series.push(serie);
+                        fs.writeFile(
+                            nombreArchivo,
+                            JSON.stringify(bdd),
+                            (err) => {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    resolve({mensaje: 'Serie Creada'});
+                                }
+                            }
+                        );
+                    }
+                }
+            )
+        })
+    )
+};
