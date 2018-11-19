@@ -108,11 +108,11 @@ const agregarSerie = (serie, nombreArchivo) => {
                     if (err) {
                         reject({mensaje: 'Error leyendo'});
                     } else {
-                        const bdd = JSON.parse(contenido);
-                        bdd.series.push(serie);
+                        const base = JSON.parse(contenido);
+                        base.series.push(serie);
                         fs.writeFile(
                             nombreArchivo,
-                            JSON.stringify(bdd),
+                            JSON.stringify(base),
                             (err) => {
                                 if (err) {
                                     reject(err);
@@ -135,7 +135,7 @@ const listarSeries = (nombreArchivo) => {
                     if (err) {
                         reject({mensaje: 'Error leyendo'});
                     } else {
-                        const bdd = JSON.parse(contenido);
+                        const base = JSON.parse(contenido);
                         resolve(bdd.series);
                     }
                 }
@@ -151,14 +151,14 @@ const eliminarSerie = (nombreSerieBuscada, nombreArchivo) => {
                     if (err) {
                         reject({mensaje: 'Error leyendo'});
                     } else {
-                        var bdd = JSON.parse(contenido);
-                        bdd.series = bdd.series.filter(function(serie) {
+                        var base = JSON.parse(contenido);
+                        base.series = base.series.filter(function(serie) {
                             return serie.nombreSerie.toLowerCase() !== nombreSerieBuscada.toLowerCase();
                         });
 
                         fs.writeFile(
                             nombreArchivo,
-                            JSON.stringify(bdd),
+                            JSON.stringify(base),
                             (err) => {
                                 if (err) {
                                     reject(err);
