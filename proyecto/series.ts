@@ -222,13 +222,34 @@ function preguntarDatos() {
                                 }
                             )
                         );
+
+                case 'Editar Serie':
+                    return rxjs
+                    .from(inquirer.prompt(menuPreguntaSerie))
+                    .pipe(
+                        map(
+                            (serie: Serie) => {
+                                respuesta.bdd.series = respuesta.bdd.series.map(
+                                    (serieActual:Serie)=>{
+                                        if (serieActual.idSerie === serie.idSerie){
+                                            return serie
+                                        } else {
+                                            return serieActual
+                                        }
+                                    }
+                                );
+                                return respuesta;
+                            }
+                        )
+                    );
+
                 case 'Eliminar Serie':
                     return rxjs
                         .from(inquirer.prompt(menuBuscarSerie))
                         .pipe(
                             map(
                                 (serieBuscar) => {
-                                    respuesta.bdd.series = respuesta.bdd.series.filter((serie) => {
+                                    respuesta.bdd.series = respuesta.bdd.series.filter((serie: Serie) => {
                                         return serie.idSerie !== serieBuscar.idSerieBuscada;
                                     });
                                     return respuesta;
