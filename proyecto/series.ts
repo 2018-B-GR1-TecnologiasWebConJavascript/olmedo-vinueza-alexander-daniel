@@ -59,7 +59,7 @@ function main() {
         )
         .subscribe(
             (respuesta) => {
-                console.log(respuesta);
+                //console.log(respuesta);
             },
             (error) => {
                 console.log(error);
@@ -200,8 +200,34 @@ function preguntarDatos() {
                                 }
                             )
                         );
+                case 'Listar Series':
+                    return rxjs
+                        .of(respuesta)
+                        .pipe(
+                            map(
+                                (respuesta: RespuestaLeerBDD) => {
+                                    respuesta.bdd.series.forEach(
+                                        (serie:Serie, index) => {
+                                            console.log((index+1)  + ". Serie: " + serie.nombreSerie + "\tEstreno: " + serie.fechaEmision + "\tGenero: " + serie.genero)
+                                        }
+                                    );
+                                    return respuesta
+                                }
+                            )
+                        );
 
             }
+        }
+    );
+}
+
+function ejecutarAccion() {
+    return map(
+        (respuesta: RespuestaLeerBDD) => {
+            if (respuesta.serie) {
+                respuesta.bdd.series.push(respuesta.serie);
+            }
+            return respuesta;
         }
     );
 }
@@ -214,18 +240,7 @@ function actualizarBDD() {
     );
 }
 
-
-function ejecutarAccion() {
-    return map(
-        (respuesta: RespuestaLeerBDD) => {
-            respuesta.bdd.series.push(respuesta.serie);
-            return respuesta;
-        }
-    );
-}
-
 main();
-
 
 interface RespuestaLeerBDD {
     mensaje: string;
@@ -239,8 +254,8 @@ export interface BaseDeDatos {
 }
 
 interface Serie {
-    nombre: string;
-    estreno: number;
+    nombreSerie: string;
+    fechaEmision: number;
     genero: string;
 }
 
