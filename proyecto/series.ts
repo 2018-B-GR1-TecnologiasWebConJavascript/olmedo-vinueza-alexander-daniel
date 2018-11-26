@@ -20,6 +20,13 @@ const preguntaMenu = {
 };
 
 const menuPreguntaSerie = [
+
+    {
+        name: 'idSerie',
+        type: 'input',
+        message: 'Ingrese el id de la Serie'
+    },
+
     {
         name: 'nombreSerie',
         type: 'input',
@@ -41,9 +48,9 @@ const menuPreguntaSerie = [
 
 const menuBuscarSerie = [
     {
-        name: 'nombreSerieBuscada',
+        name: 'idSerieBuscada',
         type: 'input',
-        message: 'Ingresar el nombre de la serie'
+        message: 'Ingresar el id de la serie'
     }
 ];
 
@@ -207,11 +214,24 @@ function preguntarDatos() {
                             map(
                                 (respuesta: RespuestaLeerBDD) => {
                                     respuesta.bdd.series.forEach(
-                                        (serie:Serie, index) => {
-                                            console.log((index+1)  + ". Serie: " + serie.nombreSerie + "\tEstreno: " + serie.fechaEmision + "\tGenero: " + serie.genero)
+                                        (serie:Serie) => {
+                                            console.log("ID: " + serie.idSerie + "\tSerie: " + serie.nombreSerie + "\tEstreno: " + serie.fechaEmision + "\tGenero: " + serie.genero)
                                         }
                                     );
                                     return respuesta
+                                }
+                            )
+                        );
+                case 'Eliminar Serie':
+                    return rxjs
+                        .from(inquirer.prompt(menuBuscarSerie))
+                        .pipe(
+                            map(
+                                (serieBuscar) => {
+                                    respuesta.bdd.series = respuesta.bdd.series.filter((serie) => {
+                                        return serie.idSerie !== serieBuscar.idSerieBuscada;
+                                    });
+                                    return respuesta;
                                 }
                             )
                         );
@@ -254,6 +274,7 @@ export interface BaseDeDatos {
 }
 
 interface Serie {
+    idSerie: number;
     nombreSerie: string;
     fechaEmision: number;
     genero: string;
