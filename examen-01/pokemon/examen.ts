@@ -40,6 +40,19 @@ arregloRespuestaMove = data
 
 console.log(arregloRespuestaMove);
 
+// 8) Calcular la sumatoria de las propiedades de "stats".
+
+var respuestaStats = data
+    .map((pokemon)=>{
+        return pokemon.stats.map((stats)=>{
+            return {base_stat: stats.base_stat,
+            nombre: stats.stat.name}
+        });
+    });
+
+console.log(respuestaStats);
+
+
 //11) Realizar la operacion de crear nuevos pokemons con la libreria inquirer.js
 
 const inquirer = require('inquirer');
