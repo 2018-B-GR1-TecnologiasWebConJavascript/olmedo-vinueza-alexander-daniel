@@ -7,9 +7,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutaGestionUsuariosComponent implements OnInit {
 
+  usuarios: Usuario[] = [
+    {
+      id: 1,
+      nombre: 'Alexander'
+    },
+    {
+      id: 2,
+      nombre: 'Daniel'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  hola(){
+    return 'Hola';
+  }
+
+  imprimir(usuario:Usuario){
+    console.log('Imprimir', usuario)
+    const indiceUsuarioAEliminar = this.usuarios.findIndex(
+      (usuarioABuscar)=>{
+      return usuarioABuscar.id == usuario.id
+    });
+    this.usuarios.splice(indiceUsuarioAEliminar, 1)
+  }
+
+}
+
+interface Usuario {
+  nombre?:string;
+  id?: number;
 }
