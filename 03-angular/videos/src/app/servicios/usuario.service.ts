@@ -56,6 +56,11 @@ export class UsuarioService {
     return usuarioActualizado;
   }
 
+  buscarPorId(id: number){
+    return this.usuarios
+      .find((usuario)=> usuario.id === id);
+  }
+
 }
 
 export interface Usuario {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {UsuarioService} from "../../servicios/usuario.service";
+import {Usuario, UsuarioService} from "../../servicios/usuario.service";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -8,6 +8,8 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./ruta-ver-detalle-usuario.component.scss']
 })
 export class RutaVerDetalleUsuarioComponent implements OnInit {
+
+  usuario: Usuario;
 
   constructor(
     private readonly _usuarioService: UsuarioService,
@@ -20,7 +22,11 @@ export class RutaVerDetalleUsuarioComponent implements OnInit {
     rutaActiva$
       .subscribe( // ASYNC
         (parametros) => {
-          console.log(parametros);
+
+          // parametros ->
+          const usuarioEncontrado = this._usuarioService.buscarPorId(+parametros.idUsuario);
+
+          this.usuario = usuarioEncontrado;
         }
     )
   }
