@@ -18,6 +18,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Cuando esta listo el web component para mostrarse
     this.usuarios = this._usuarioService.usuarios;
   }
 
