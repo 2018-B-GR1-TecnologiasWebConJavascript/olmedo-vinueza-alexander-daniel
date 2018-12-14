@@ -39,7 +39,7 @@ const routes: Routes = [
         component: RutaGestionProductosComponent,
       },
       {
-        path:'ver-usuario',
+        path:'ver-usuario/:idUsuario',
         component: RutaVerDetalleUsuarioComponent,
       }
     ]
