@@ -7,6 +7,7 @@ import {RutaPerfilComponent} from "./rutas/ruta-perfil/ruta-perfil.component";
 import {Ruta404Component} from "./rutas/ruta404/ruta404.component";
 import {RutaGestionUsuariosComponent} from "./rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component";
 import {RutaGestionProductosComponent} from "./rutas/ruta-gestion-productos/ruta-gestion-productos.component";
+import {RutaVerDetalleUsuarioComponent} from "./rutas/ruta-ver-detalle-usuario/ruta-ver-detalle-usuario.component";
 
 const routes: Routes = [
   {
@@ -30,12 +31,16 @@ const routes: Routes = [
       {
         // menu/gestion-usuarios
         path:'gestion-usuarios',
-        component: RutaGestionUsuariosComponent
+        component: RutaGestionUsuariosComponent,
       },
       {
         // menu/gestion-productos
         path:'gestion-productos',
-        component: RutaGestionProductosComponent
+        component: RutaGestionProductosComponent,
+      },
+      {
+        path:'ver-usuario',
+        component: RutaVerDetalleUsuarioComponent,
       }
     ]
   },
