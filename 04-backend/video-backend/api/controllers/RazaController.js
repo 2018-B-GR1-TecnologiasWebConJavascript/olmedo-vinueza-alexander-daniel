@@ -14,7 +14,16 @@ module.exports = {
 
   holaMundo: (peticion , respuesta) =>{
     return respuesta.ok('OK');
-  }
+  },
+
+  buscarPorNombre: async function (request, response) {
+    // Tener acceso a todos los modelos
+    var nombreCac = await Raza.find({
+      nombre: { 'startsWith':'Cac'}
+    });
+    return response.ok(nombreCac)
+
+  },
 
 };
 

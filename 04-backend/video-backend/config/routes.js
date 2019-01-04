@@ -21,7 +21,8 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
-  'GET /Raza/holaMundo': 'RazaController.holaMundo'
+  'GET /Raza/holaMundo': 'RazaController.holaMundo',
+  'GET /Raza/buscarCac': 'RazaController.buscarPorNombre'
 
 
   /***************************************************************************
