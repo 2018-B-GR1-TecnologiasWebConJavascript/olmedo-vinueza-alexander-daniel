@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {Usuario, UsuarioService} from "../../servicios/usuario.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {UsuarioServiceService} from '../../servicios/usuario-service.service';
+import {ActivatedRoute, Route} from '@angular/router';
+import {UsuarioInterface} from '../../servicios/usuario-service.service';
+
 
 @Component({
   selector: 'app-ruta-ver-detalle-usuario',
@@ -9,26 +11,31 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class RutaVerDetalleUsuarioComponent implements OnInit {
 
-  usuario: Usuario;
+  usuario: UsuarioInterface;
 
   constructor(
-    private readonly _usuarioService: UsuarioService,
-    private readonly _route: ActivatedRoute
+    private readonly _usuarioService: UsuarioServiceService,
+    private readonly _route: ActivatedRoute, // RouterModule
   ) {
   }
 
   ngOnInit() {
+
     const rutaActiva$ = this._route.params;
+    // INICIO
     rutaActiva$
       .subscribe( // ASYNC
         (parametros) => {
 
-          // parametros ->
-          const usuarioEncontrado = this._usuarioService.buscarPorId(+parametros.idUsuario);
+          // parametros ->  {idUsuario:"1"}
+          const usuarioEncontrado = this._usuarioService
+            .buscarPorId(+parametros.idUsuario);
 
           this.usuario = usuarioEncontrado;
+
         }
-    )
+      );
+    // FIN
   }
 
 }

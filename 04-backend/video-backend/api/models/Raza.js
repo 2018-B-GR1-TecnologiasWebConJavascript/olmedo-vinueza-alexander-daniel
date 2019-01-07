@@ -9,14 +9,14 @@ module.exports = {
 
   attributes: {
 
-   nombre: {
-     type: 'string',
-     required: true
-   },
-   mascotas: {
-     collection: 'Mascota', // Modelo Hijo
-     via: 'idRaza' // Nombre del campo
-   }
+    nombre: {
+      type: 'string',
+      required: true
+    },
+    mascotas: {
+      collection: 'Mascota', // Modelo Hijo
+      via: 'idRaza' // Nombre del Campo
+    }
 
   },
 

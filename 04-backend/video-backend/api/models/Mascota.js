@@ -11,10 +11,10 @@ module.exports = {
 
     nombre: {
       type: 'string',
-      required:true
+      required: true
     },
     idRaza: {
-      model: 'raza' // Modelo Padre
+      model: 'Raza' // Modelo Papa
     }
 
   },

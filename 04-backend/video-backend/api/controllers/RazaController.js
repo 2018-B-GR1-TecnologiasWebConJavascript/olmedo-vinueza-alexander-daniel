@@ -12,74 +12,98 @@
 
 module.exports = {
 
-  holaMundo: (peticion , respuesta) =>{
-    return respuesta.ok('OK');
+  holaMundo: function (peticion, respuesta) {
+    return respuesta.ok('ok');
   },
+  buscarPorNombre: async function (req, res) {
+    // TENER ACCESO A TODOS LOS MODELOS
+    // Body Query
+    const parametros = req.allParams();
 
-  buscarPorNombre: async function (request, response) {
-    // Tener acceso a todos los modelos
     var nombreCac = await Raza.find({
-      nombre: { 'startsWith':'Cac'}
+      nombre: {'startsWith': parametros.nombre}
     });
-    return response.ok(nombreCac)
+
+    return res.ok(nombreCac);
 
   },
 
 };
 
+
 // ESTANDAR RESTFULL
 
 // MODELO: Raza
 
-// Find
+// Find Many->
 // http://localhost:1337/Raza
 // METODO HTTP: GET
 
-// Create
+
+// Find by ... ->
+// http://localhost:1337/Raza?nombre=Carlos
+// METODO HTTP: GET
+
+
+// Create ->
 // http://localhost:1337/Raza
 // METODO HTTP: POST
-// Parametros -> Body(Formulario)
+// Parametros -> Body (Formulario)
 
-// Update
+// Update ->
 // http://localhost:1337/Raza/id
-// http://localhost:1337/Raza/1
+// http://localhost:1337/Raza/10
 // METODO HTTP: PUT
 // Parametros
 
-// Delete
+
+// Delete ->
 // http://localhost:1337/Raza/id
-// http://localhost:1337/Raza/1
+// http://localhost:1337/Raza/10
 // METODO HTTP: DELETE
 
-// Find One by ID
+
+// Find One by ID ->
 // http://localhost:1337/Raza/id
 // http://localhost:1337/Raza/10
 // METODO HTTP: GET
 
 
 // Query Params
-// AL FINAL
+// AL FINAL DEL URL
 // ? Empieza
-// & Separa
-// http://localhost:1337/Raza?nombre=Alexander&apellido=Olmedo
+// & Se separa
+// http://localhost:1337/Raza?nombre=Adrian&apellido=Eguez
 // TODOS LOS METODOS HTTP
 
 // Route Params
 // Dinamicos
-// http://localhost:1337/Raza/1/casa/2/cuarto/13
+// http://localhost:1337/Raza/4/casa/5/cuarto/6
 // TODOS LOS METODOS HTTP
 
-// Form Params (Body Params)
-// TODOS LOS METODOS HTTP EXCEPTO GET
+// Form Params  (Body Params)
+// NO SIRVE EN EL METODO "GET"
+
 // JS
-// <form></form>
-// <input type="text" name="nombre" value="Alexander">
-// <input type="text" name="apellido" value="Olmedo">
+
+// <form>
+// <input type="text" name="nombre" value="Adrian">
+// <input type="text" name="apellido" value="Eguez">
 // </form>
 
-// STATUS CODE (Códigos de estado)
-// 1XX -> Información
-// 2XX -> Éxito
-// 3XX -> Redirección
-// 4XX -> Error del CLIENTE
-// 5XX -> Error del SERVIDOR
+
+//
+
+// Codigos de estado -> Status Code
+
+// 1XX  -> Informacion
+// 2XX  -> Exito
+// 3XX  -> Redireccion
+// 4XX  -> Error del CLIENTE
+// 5XX  -> Error del SERVIDOR
+
+
+
+
+
+

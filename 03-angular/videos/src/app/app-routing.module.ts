@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {RutaInicioComponent} from "./rutas/ruta-inicio/ruta-inicio.component";
-import {RutaMenuComponent} from "./rutas/ruta-menu/ruta-menu.component";
-import {RutaLoginComponent} from "./rutas/ruta-login/ruta-login.component";
-import {RutaPerfilComponent} from "./rutas/ruta-perfil/ruta-perfil.component";
-import {Ruta404Component} from "./rutas/ruta404/ruta404.component";
-import {RutaGestionUsuariosComponent} from "./rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component";
-import {RutaGestionProductosComponent} from "./rutas/ruta-gestion-productos/ruta-gestion-productos.component";
-import {RutaVerDetalleUsuarioComponent} from "./rutas/ruta-ver-detalle-usuario/ruta-ver-detalle-usuario.component";
+import {RutaInicioComponent} from './rutas/ruta-inicio/ruta-inicio.component';
+import {RutaMenuComponent} from './rutas/ruta-menu/ruta-menu.component';
+import {RutaLoginComponent} from './rutas/ruta-login/ruta-login.component';
+import {RutaPerfilComponent} from './rutas/ruta-perfil/ruta-perfil.component';
+import {Ruta404Component} from './rutas/ruta404/ruta404.component';
+import {RutaGestionUsuariosComponent} from './rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component';
+import {RutaGestionProductosComponent} from './rutas/ruta-gestion-productos/ruta-gestion-productos.component';
+import {RutaVerDetalleUsuarioComponent} from './rutas/ruta-ver-detalle-usuario/ruta-ver-detalle-usuario.component';
 
 const routes: Routes = [
   {
@@ -16,13 +16,15 @@ const routes: Routes = [
     redirectTo: 'inicio'
   },
   {
-    path: 'inicio',  // NOMBRE
-    component: RutaInicioComponent  // COMPONENTE
+    // NOMBRE
+    path: 'inicio',
+    component: RutaInicioComponent
+    // COMPONENTE
   },
   {
     path: 'menu',
     component: RutaMenuComponent,
-    children:[
+    children: [
       {
         path: '',
         pathMatch: 'full',
@@ -30,17 +32,17 @@ const routes: Routes = [
       },
       {
         // menu/gestion-usuarios
-        path:'gestion-usuarios',
+        path: 'gestion-usuarios',
         component: RutaGestionUsuariosComponent,
       },
       {
         // menu/gestion-productos
-        path:'gestion-productos',
-        component: RutaGestionProductosComponent,
+        path: 'gestion-productos',
+        component: RutaGestionProductosComponent
       },
       {
-        path:'ver-usuario/:idUsuario',
-        component: RutaVerDetalleUsuarioComponent,
+        path: 'ver-usuario/:idUsuario', // /menu/ver-usuario
+        component: RutaVerDetalleUsuarioComponent
       }
     ]
   },
@@ -63,8 +65,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {
 }

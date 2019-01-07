@@ -3,67 +3,73 @@ import {Injectable} from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
+export class UsuarioServiceService {
 
-  usuarios: Usuario[] = [
+  usuarios: UsuarioInterface[] = [
     {
       id: 1,
-      nombre: 'Alexander'
+      nombre: 'Adrian'
     },
     {
       id: 2,
-      nombre: 'Daniel'
+      nombre: 'Vicente'
     }
   ];
 
-  registroActual = 3;  // RECNUM Record Number
+  registroActual = 3; // RECNUM -> Record Number
 
   constructor() {
   }
 
-  crear(nuevoUsuario: Usuario) {
+  crear(nuevoUsuario: UsuarioInterface): UsuarioInterface {
+
     nuevoUsuario.id = this.registroActual;
     this.usuarios.push(nuevoUsuario);
     this.registroActual++;
+
     return nuevoUsuario;
   }
 
-  eliminar(id: number) {
+  eliminar(id: number): UsuarioInterface {
     const indiceUsuario = this.usuarios
       .findIndex(
         (usuario) => {
           return usuario.id === id;
         }
       );
+
     const usuarioBorrado = JSON.parse(
       JSON.stringify(this.usuarios[indiceUsuario])
     );
 
-    this.usuarios.splice(indiceUsuario,1);
+    this.usuarios.splice(indiceUsuario, 1);
 
     return usuarioBorrado;
   }
 
-  actualizar(id: number, usuarioActualizado: Usuario){
+  actualizar(id: number, usuarioActualizado: UsuarioInterface) {
+
     const indiceUsuario = this.usuarios
       .findIndex(
         (usuario) => {
           return usuario.id === id;
         }
       );
+
     this.usuarios[indiceUsuario] = usuarioActualizado;
 
     return usuarioActualizado;
   }
 
-  buscarPorId(id: number){
+  buscarPorId(id: number): UsuarioInterface {
     return this.usuarios
-      .find((usuario)=> usuario.id === id);
+      .find((usuario) => usuario.id === id);
   }
+
 
 }
 
-export interface Usuario {
+export interface UsuarioInterface {
   nombre?: string;
   id?: number;
 }

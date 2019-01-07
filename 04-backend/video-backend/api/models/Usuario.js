@@ -63,32 +63,58 @@ module.exports = {
 
 };
 
+// RESTFULL -> HTTP -> ESTANDAR (PUEDEN)
 
-  // RESTFUL -> HTTP -> ESTANDAR
-  // Modelo - Tabla de la BDD
-  // Modelo - Crear Borrar Actualizar Borrar
-  // Request - Parametros
-  // Metodos HTTP
-  // response -> Status Code
+// Modelo -> Tabla de la BDD
 
-  // FindAll
-  // http://192.168.0.12:1337/Usuario
-  // METHOD: GET
+// Modelo -> Crear Borrar Actualizar Buscar
 
-  // Crear
-  // http://192.168.0.12:1337/Usuario
-  // METHOD: POST
-  // PARAMETROS: (body-form)
+// request -> Parametros
+//
+// Metodo HTTP -> GET POST PUT DELETE OPTIONS
+//
+// response -> Status Code 1 2 3 4 5
+//
+//
+//
+// -> Find All
+// http://192.168.0.12:1337/Usuario
+// METHOD: GET
+//
+// -> Crear
+// http://192.168.0.12:1337/Raza
+// METHOD: POST
+// !PARAMETROS! (body / form)
+//
+// -> Find One By ID
+// http://192.168.0.12:1337/Usuario/25
+// METHOD: GET
+//
+//
+// -> Update One By ID
+// http://192.168.0.12:1337/Usuario/25
+// METHOD: PUT
+// !PARAMETROS! (body / form)
+//
+// -> Delete One By ID
+// http://192.168.0.12:1337/Usuario/25
+// METHOD: DELETE
+//
+//
 
-  // Find One by ID
-  // http://192.168.0.12:1337/Usuario/1
-  // METHOD: GET
 
-  // Update One By ID
-  // http://192.168.0.12:1337/Usuario/25
-  // METHOD: PUT
-  // PARAMETROS: (body-form)
 
-  // Delete One By ID
-  // http://192.168.0.12:1337/Usuario/25
-  // METHOD: DELETE
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,9 +27,9 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/alexanderolmedo/video-backend.git"
+    "url": "git://github.com/usrdel/video-backend.git"
   },
-  "author": "alexanderolmedo",
+  "author": "usrdel",
   "license": "",
   "engines": {
     "node": "^8.11"

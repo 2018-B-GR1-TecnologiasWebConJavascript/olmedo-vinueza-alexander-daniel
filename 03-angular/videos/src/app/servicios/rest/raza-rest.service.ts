@@ -19,15 +19,15 @@ export class RazaRestService {
     // OBSERVABLE
     const razas$ = this._httpClient
       .get(environment.url + this.nombreModelo)
-      .pipe(
-        map(
-          (respuesta) => {
-            return <Raza[]> respuesta;
-          }
-        )
-      );
+      .pipe(map(r => <Raza[]> r)); // Castear
 
     return razas$;
+  }
+
+  delete(id: number): Observable<Raza> {
+    return this._httpClient
+      .delete(environment.url + this.nombreModelo + `/${id}`)
+      .pipe(map(r => <Raza> r)); // Castear
   }
 
 
@@ -45,6 +45,7 @@ export class RazaRestService {
 // fbi.gov.us -> 192.220.1.5
 
 // CORS -> Navegador
+
 
 
 
