@@ -12,6 +12,8 @@ import { RutaGestionUsuariosComponent } from './rutas/ruta-gestion-usuarios/ruta
 import { RutaGestionProductosComponent } from './rutas/ruta-gestion-productos/ruta-gestion-productos.component';
 import {UsuarioService} from "./servicios/usuario.service";
 import { RutaVerDetalleUsuarioComponent } from './rutas/ruta-ver-detalle-usuario/ruta-ver-detalle-usuario.component';
+import {HttpClientModule} from "@angular/common/http";
+import {RazaRestService} from "./servicios/rest/raza-rest.service";
 
 @NgModule({
   declarations: [  // Components
@@ -27,9 +29,13 @@ import { RutaVerDetalleUsuarioComponent } from './rutas/ruta-ver-detalle-usuario
   ],
   imports: [  // Modulos
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule  // Acceso a un servicio Httpclient
   ],
-  providers: [UsuarioService],  // Servicios
+  providers: [
+    UsuarioService,
+    RazaRestService
+  ],  // Servicios
   bootstrap: [AppComponent]  // Componente Principal
 })
 export class AppModule { }
