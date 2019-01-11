@@ -2,8 +2,28 @@
 <p>Crea razas de animales</p>
 <form>
   <div>
+    {{raza.nombre}}
     <label for="nombre">Nombre</label>
-    <input id="nombre" type="text" placeholder="Escribe el nombre de una raza">
+    <!--Banana Box Model-->
+    <!--Two way Data Binding-->
+    <!--Componente y HTML-->
+    <input id="nombre"
+           name="nombre"
+           type="text"
+           placeholder="Escribe el nombre de una raza"
+           [(ngModel)]="raza.nombre">
+  </div>
+  <div>
+    {{raza.apellido}}
+    <label for="apellido">Apellido</label>
+    <!--Banana Box Model-->
+    <!--Two way Data Binding-->
+    <!--Componente y HTML-->
+    <input id="apellido"
+           name="apellido"
+           type="text"
+           placeholder="Escribe el apellido de una raza"
+           [(ngModel)]="raza.apellido">
   </div>
 
   <button>Crear Raza</button>

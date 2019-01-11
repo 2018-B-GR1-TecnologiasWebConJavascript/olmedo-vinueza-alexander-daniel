@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ruta-crear-raza',
@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RutaCrearRazaComponent implements OnInit {
 
-  constructor() { }
+  raza: Razaejemplo = {
+    nombre: '',
+    apellido: ''
+  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+}
+
+interface Razaejemplo {
+  nombre: string;
+  apellido:string;
 }
