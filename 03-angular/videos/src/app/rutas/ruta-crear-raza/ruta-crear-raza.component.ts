@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {RazaRestService} from "../../servicios/rest/raza-rest.service";
+import {Raza} from "../../interfaces/raza";
 
 @Component({
   selector: 'app-ruta-crear-raza',
@@ -12,10 +14,26 @@ export class RutaCrearRazaComponent implements OnInit {
     apellido: ''
   }
 
-  constructor() {
+  constructor(private readonly _razaRestService: RazaRestService) {
   }
 
   ngOnInit() {
+  }
+
+  crearRaza(){
+    const crearRaza$ = this._razaRestService
+      .create(this.raza.nombre);
+
+    crearRaza$
+      .subscribe(
+        (raza:Raza)=>{
+          console.log('Raza');
+          alert(`Raza creada: ${raza.nombre}`);
+        },
+        (error) =>{
+          console.error('Error: ', error)
+        }
+      )
   }
 
 }
