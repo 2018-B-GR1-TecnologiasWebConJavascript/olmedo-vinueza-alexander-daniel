@@ -1,21 +1,49 @@
 <h2>Crear Raza</h2>
 <p>Crea razas de animales</p>
-<form>
+<!--no validar-->
+<form #razaFormulario="ngForm"
+      novalidate
+      (submit)="crearRaza(razaFormulario)">
+
+
   <div>
     {{raza.nombre}}
-    <label for="nombre">Nombre</label>
+
+    <p *ngIf="nombreControl.errors">
+      Mensaje:
+      <span *ngIf="nombreControl.errors.required">
+        Datos requeridos
+      </span>
+    </p>
+
+    <label for="nombre">Nombre: </label>
     <!--Banana Box Model-->
     <!--Two way Data Binding-->
     <!--Componente y HTML-->
     <input id="nombre"
            name="nombre"
            type="text"
+           required
            placeholder="Escribe el nombre de una raza"
-           [(ngModel)]="raza.nombre">
+           [(ngModel)]="raza.nombre"
+           #nombreControl="ngModel">
+    <pre>
+      formulario valido: {{nombreControl.valid}}
+      formulario invalido: {{nombreControl.invalid}}
+
+      formulario errores: {{nombreControl.errors | json}}
+
+      formulario touched: {{nombreControl.touched}}
+      formulario untouched: {{nombreControl.untouched}}
+
+      formulario dirty: {{nombreControl.dirty}}
+      formulario pristine: {{nombreControl.pristine}}
+    </pre>
   </div>
   <div>
     {{raza.apellido}}
-    <label for="apellido">Apellido</label>
+
+    <label for="apellido">Apellido: </label>
     <!--Banana Box Model-->
     <!--Two way Data Binding-->
     <!--Componente y HTML-->
@@ -23,8 +51,24 @@
            name="apellido"
            type="text"
            placeholder="Escribe el apellido de una raza"
-           [(ngModel)]="raza.apellido">
+           [(ngModel)]="raza.apellido"
+           #apellidoControl="ngModel">
+    <pre>
+      formulario valido: {{apellidoControl.valid}}
+      formulario invalido: {{apellidoControl.invalid}}
+
+      formulario errores: {{apellidoControl.errors | json}}
+
+      formulario touched: {{apellidoControl.touched}}
+      formulario untouched: {{apellidoControl.untouched}}
+
+      formulario dirty: {{apellidoControl.dirty}}
+      formulario pristine: {{apellidoControl.pristine}}
+    </pre>
   </div>
 
-  <button>Crear Raza</button>
+  <button type="button">Button</button>
+  <button type="reset">Reset</button>
+  <button type="submit"
+  [disabled]="razaFormulario.invalid">Submit</button>
 </form>
