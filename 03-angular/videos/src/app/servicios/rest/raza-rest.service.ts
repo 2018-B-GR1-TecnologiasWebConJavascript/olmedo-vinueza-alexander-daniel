@@ -39,6 +39,20 @@ export class RazaRestService {
       .post(environment.url + this.nombreModelo, objetoAGuardar)
       .pipe(map(r => <Raza> r)); // Castear
   }
+  
+  findOneById(id: number | string) {
+    const url = environment.url + this.nombreModelo + "/" + id;
+    return this._httpClient
+      .get(url)
+      .pipe(map(r => <Raza> r)); // Castear
+  }
+  
+  updateOneById(raza: Raza){
+    const url = environment.url + this.nombreModelo + "/" + raza.id;
+    return this._httpClient
+      .put(url, raza)
+      .pipe(map(r => <Raza> r)); // Castear
+  }
 
 
 }
