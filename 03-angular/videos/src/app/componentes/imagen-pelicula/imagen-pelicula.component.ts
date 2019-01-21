@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-imagen-pelicula',
@@ -13,12 +13,29 @@ export class ImagenPeliculaComponent implements OnInit {
   @Input()
   titulo: string;
 
-  @Input()
+  @Input() // Propiedades
   anio: string;
 
-  constructor() { }
+  @Output() // Eventos
+  dioClick = new EventEmitter()
+
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  lanzarEventoDioClick() {
+    const objetoPelicula = {
+      titulo: this.titulo,
+      anio: this.anio,
+      nombre: this.nombre
+    };
+
+    this.dioClick.emit(objetoPelicula);
+
+
   }
 
 }
