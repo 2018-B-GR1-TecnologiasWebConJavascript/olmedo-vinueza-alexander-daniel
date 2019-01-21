@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {RazaRestService} from "../../servicios/rest/raza-rest.service";
-import {Raza} from "../../interfaces/raza";
-import {NgForm} from "@angular/forms";
+import {RazaRestService} from '../../servicios/rest/raza-rest.service';
+import {Raza} from '../../interfaces/raza';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-ruta-crear-raza',
@@ -10,10 +10,10 @@ import {NgForm} from "@angular/forms";
 })
 export class RutaCrearRazaComponent implements OnInit {
 
-  raza: Razaejemplo = {
-    nombre: '',
+  raza: RazaEjemplo = {
+    nombre: '123123123123',
     apellido: ''
-  }
+  };
 
   constructor(private readonly _razaRestService: RazaRestService) {
   }
@@ -29,7 +29,7 @@ export class RutaCrearRazaComponent implements OnInit {
 
     if (this.nombreContieneA(this.raza.nombre.toString())) {
       const crearRaza$ = this._razaRestService
-        .create(this.raza.nombre);
+        .create(<string> this.raza.nombre);
       crearRaza$
         .subscribe(
           (raza: Raza) => {
@@ -37,22 +37,37 @@ export class RutaCrearRazaComponent implements OnInit {
             alert(`Raza creada: ${raza.nombre}`);
           },
           (error) => {
-            console.error('Error: ', error)
+            console.error('Error: ', error);
           }
         );
     } else {
-      alert('ERROR, no contiene la letra A')
+      alert('ERROR, No contiene una letra A');
     }
-
   }
 
   nombreContieneA(nombre: string): boolean {
-    return nombre.toLowerCase().includes('a')
+    return nombre.toLowerCase().includes('a');
+  }
+
+
+  mostrarEnConsola(objeto) {
+    console.log(objeto);
+    console.log(objeto.value);
   }
 
 }
 
-interface Razaejemplo {
-  nombre: string;
+
+interface RazaEjemplo {
+  nombre: string | number;
   apellido: string;
 }
+
+
+
+
+
+
+
+
+

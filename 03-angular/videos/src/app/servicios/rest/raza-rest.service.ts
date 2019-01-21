@@ -29,29 +29,37 @@ export class RazaRestService {
       .delete(environment.url + this.nombreModelo + `/${id}`)
       .pipe(map(r => <Raza> r)); // Castear
   }
-  
-  create(nombre:string): Observable<Raza>{
+
+  create(nombre: string): Observable<Raza> {
 
     const objetoAGuardar: Raza = {
-      nombre:nombre
+      nombre: nombre
     };
+    const url = environment.url + this.nombreModelo;
+
     return this._httpClient
-      .post(environment.url + this.nombreModelo, objetoAGuardar)
+      .post(url, objetoAGuardar)
       .pipe(map(r => <Raza> r)); // Castear
   }
-  
-  findOneById(id: number | string) {
-    const url = environment.url + this.nombreModelo + "/" + id;
+
+  findOneById(id: number | string): Observable<Raza> {
+    const url = environment.url + this.nombreModelo
+      + '/' + id;
+
     return this._httpClient
       .get(url)
       .pipe(map(r => <Raza> r)); // Castear
   }
-  
-  updateOneById(raza: Raza){
-    const url = environment.url + this.nombreModelo + "/" + raza.id;
+
+  updateOneById(raza: Raza) {
+
+    const url = environment.url + this.nombreModelo
+      + '/' + raza.id;
+
     return this._httpClient
       .put(url, raza)
       .pipe(map(r => <Raza> r)); // Castear
+
   }
 
 

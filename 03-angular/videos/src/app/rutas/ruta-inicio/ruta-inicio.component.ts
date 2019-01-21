@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ruta-inicio',
@@ -10,35 +10,29 @@ export class RutaInicioComponent implements OnInit {
   imagenes: Imagenes[] = [
     {
       anio: 2018,
-      nombreImagen: '01.jpg',
-      nombrePelicula: 'Capitana Marvel'
+      nombreImagen: '01.jpeg',
+      nombrePelicula: 'Avengers'
     },
     {
-      anio: 2018,
-      nombreImagen: '02.jpg',
-      nombrePelicula: 'Bumblebee'
+      anio: 2016,
+      nombreImagen: '02.jpeg',
+      nombrePelicula: 'Infantil'
     },
     {
-      anio: 2018,
-      nombreImagen: '03.jpg',
-      nombrePelicula: 'Artemis Fowl'
+      anio: 2008,
+      nombreImagen: '03.jpeg',
+      nombrePelicula: 'Antigua'
     },
     {
-      anio: 2018,
-      nombreImagen: '04.jpg',
-      nombrePelicula: 'MiB International'
-    }
-  ];
-
-  constructor() { }
-
-  agregarCarrito(pelicula){
-    console.log('Agregando al carrito', pelicula);
+      anio: 2001,
+      nombreImagen: '04.jpeg',
+      nombrePelicula: 'Toy Story'
+    },
+];
+  constructor() {
   }
-
   ngOnInit() {
   }
-
 }
 
 export interface Imagenes {
@@ -46,3 +40,10 @@ export interface Imagenes {
   nombrePelicula: string;
   anio: number;
 }
+
+
+
+
+
+
+

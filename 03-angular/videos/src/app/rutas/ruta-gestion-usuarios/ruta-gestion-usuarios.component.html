@@ -1,6 +1,7 @@
 <h3>Gestion Usuarios</h3>
 <p>Gestione sus usuarios.</p>
 
+
 <a routerLink="/menu/crear-raza">
   <button>Crear raza</button>
 </a>
@@ -25,15 +26,16 @@
       <!-- Property Binding [propiedad] Js    -->
       <a [routerLink]="
       ['/menu','ver-usuario',usuario.id]">
-            <!--
-            /menu/ver-usuario/usuario.id
-            url -> arreglo
-            ['/menu','ver-usuario',usuario.id]
-             -->
-          <button>
-            Ver
-          </button>
+        <!--
+        /menu/ver-usuario/usuario.id
+        url -> arreglo
+        ['/menu','ver-usuario',usuario.id]
+         -->
+        <button>
+          Ver
+        </button>
       </a>
+
       <a [routerLink]="
       ['/menu','actualizar-raza',usuario.id]">
         <button>
