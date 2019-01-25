@@ -20,6 +20,7 @@ import { RutaActualizarRazaComponent } from './rutas/ruta-actualizar-raza/ruta-a
 import { ImagenPeliculaComponent } from './componentes/imagen-pelicula/imagen-pelicula.component';
 import { FormularioRazaComponent } from './componentes/formulario-raza/formulario-raza.component';
 import { LoginComponent } from './componentes/login/login.component';
+import {AuthService} from "./servicios/rest/auth.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LoginComponent } from './componentes/login/login.component';
   ],  // Modulos
   providers: [
     UsuarioServiceService,
-    RazaRestService
+    RazaRestService,
+    AuthService
   ], // Servicios
   bootstrap: [AppComponent] // Componente Principal
 })
