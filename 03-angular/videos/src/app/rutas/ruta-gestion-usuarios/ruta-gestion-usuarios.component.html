@@ -21,7 +21,52 @@
   <ng-template pTemplate="body" let-raza>
     <tr>
       <td *ngFor="let columna of columnas">
-        {{raza[columna.field]}}
+
+        <div *ngIf="columna.field==='id'">
+
+          <div *ngIf="columna.header=='Identificador'">
+            {{raza[columna.field]}}
+          </div>
+
+          <div *ngIf="columna.header=='Acciones'">
+
+            <button pButton
+                    label="Eliminar"
+                    class="ui-button-danger"
+                    (click)="eliminar(raza)">
+
+            </button>
+            <!-- Property Binding [propiedad] Js    -->
+            <a [routerLink]="['/menu','ver-usuario',raza.id]">
+              <!--
+              /menu/ver-usuario/usuario.id
+              url -> arreglo
+              ['/menu','ver-usuario',usuario.id]
+               -->
+              <button pButton
+                      label="Ver"
+                      class="ui-button-secondary">
+              </button>
+            </a>
+
+            <a [routerLink]="['/menu','actualizar-raza',raza.id]">
+              <button pButton
+                      label="Actualizar"
+                      class="ui-button-warning">
+              </button>
+            </a>
+
+          </div>
+
+        </div>
+
+        <div *ngIf="columna.field!=='id'">
+
+          {{raza[columna.field]}}
+
+        </div>
+
+
       </td>
     </tr>
   </ng-template>
