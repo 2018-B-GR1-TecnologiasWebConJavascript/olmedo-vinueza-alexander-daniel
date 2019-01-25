@@ -1,10 +1,31 @@
 <h3>Gestion Usuarios</h3>
 <p>Gestione sus usuarios.</p>
 
+<br>
 
 <a routerLink="/menu/crear-raza">
-  <button>Crear raza</button>
+  <button pButton label="Crear raza" icon="pi pi-check" class="ui-button-success" iconPos="left"></button>
 </a>
+
+<br>
+<br>
+
+<p-table [value]="usuarios">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let columna of columnas">
+        {{columna.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-raza>
+    <tr>
+      <td *ngFor="let columna of columnas">
+        {{raza[columna.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
 
 <table>
   <!-- tr -> table row  -->

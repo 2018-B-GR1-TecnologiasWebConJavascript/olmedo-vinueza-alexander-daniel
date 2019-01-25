@@ -12,6 +12,14 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   usuarios = [];
 
+  columnas =[
+    {field: 'id', header: 'Identificador'},
+    {field: 'nombre', header: 'Nombre'},
+    {field: 'username', header: 'Username'},
+    {field: 'password', header: 'Contraseña'},
+    {field: 'id', header: 'Acciones'},
+  ];
+
   // Inyeccion de Dependencias
   constructor(
     private readonly _razaRestService: RazaRestService

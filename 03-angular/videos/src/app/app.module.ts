@@ -23,6 +23,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import {AuthService} from "./servicios/rest/auth.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ButtonModule} from "primeng/button";
+import {TableModule} from "primeng/table";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {ButtonModule} from "primeng/button";
     HttpClientModule,  // Acceso a un servicio HttpClient
     FormsModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ],  // Modulos
   providers: [
     UsuarioServiceService,
