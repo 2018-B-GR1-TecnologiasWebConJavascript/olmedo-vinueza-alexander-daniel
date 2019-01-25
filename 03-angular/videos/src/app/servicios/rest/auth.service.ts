@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  usuario = {
+  usuario: any = {
     createdAt: 1,
     id: 1,
     nombre: "alex",

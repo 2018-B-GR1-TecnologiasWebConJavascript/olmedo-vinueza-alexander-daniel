@@ -21,6 +21,8 @@ import { ImagenPeliculaComponent } from './componentes/imagen-pelicula/imagen-pe
 import { FormularioRazaComponent } from './componentes/formulario-raza/formulario-raza.component';
 import { LoginComponent } from './componentes/login/login.component';
 import {AuthService} from "./servicios/rest/auth.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import {AuthService} from "./servicios/rest/auth.service";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,  // Acceso a un servicio HttpClient
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ButtonModule
   ],  // Modulos
   providers: [
     UsuarioServiceService,
