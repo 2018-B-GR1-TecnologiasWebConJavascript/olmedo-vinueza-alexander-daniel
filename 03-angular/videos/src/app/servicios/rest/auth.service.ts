@@ -9,7 +9,14 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  usuario;
+  usuario = {
+    createdAt: 1,
+    id: 1,
+    nombre: "alex",
+    password: "12345",
+    updatedAt: 1,
+    username: "alex"
+  };
 
   constructor(private readonly _httpClient: HttpClient) {
 
