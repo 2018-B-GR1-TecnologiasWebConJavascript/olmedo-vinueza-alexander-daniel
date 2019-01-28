@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../servicios/rest/auth.service";
+import {AuthService} from '../../servicios/rest/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +15,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private readonly _authService: AuthService) {
   }
+
   ngOnInit() {
   }
+
   login() {
+
     const respuestaLogin$ = this._authService
       .login(
         this.usuario.username,
@@ -26,13 +29,15 @@ export class LoginComponent implements OnInit {
 
     respuestaLogin$
       .subscribe(
-        (raza)=>{
+        (raza) => {
           this._authService.usuario = raza;
-          console.log(raza)
+          console.log(raza);
         },
-        (error)=>{
-          console.log(error);
-        })
+        (error) => {
+          console.error(error);
+        }
+      );
+
   }
 
 }

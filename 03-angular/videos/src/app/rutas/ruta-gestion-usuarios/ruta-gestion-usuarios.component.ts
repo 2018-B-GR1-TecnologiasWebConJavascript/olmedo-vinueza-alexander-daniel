@@ -12,11 +12,45 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   usuarios = [];
 
-  columnas =[
+  data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'First Dataset',
+        data: [65, 59, 80, 81, 56, 55, 40],
+        backgroundColor: [
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#FF6384'
+        ],
+        borderColor: '#FF6384',
+      },
+      {
+        label: 'Second Dataset',
+        data: [28, 48, 40, 19, 86, 27, 90],
+        backgroundColor: [
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#FF6384',
+          '#36A2EB',
+          '#FFCE56',
+          '#FF6384'
+        ],
+        borderColor: '#FFCE56',
+      }
+    ]
+  };
+
+  columnas = [
     {field: 'id', header: 'Identificador'},
     {field: 'nombre', header: 'Nombre'},
     {field: 'username', header: 'Username'},
-    {field: 'password', header: 'Contraseña'},
+    {field: 'password', header: 'Contrasenia'},
     {field: 'id', header: 'Acciones'},
   ];
 

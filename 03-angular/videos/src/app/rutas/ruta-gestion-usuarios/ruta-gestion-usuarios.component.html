@@ -4,13 +4,35 @@
 <br>
 
 <a routerLink="/menu/crear-raza">
-  <button pButton label="Crear raza" icon="pi pi-check" class="ui-button-success" iconPos="left"></button>
+  <button pButton
+          label="Crear raza"
+          icon="pi pi-check"
+          class="ui-button-success"
+          iconPos="left"></button>
 </a>
 
 <br>
 <br>
 
-<p-table [value]="usuarios">
+
+<p-chart type="line" [data]="data"></p-chart>
+
+
+
+<p-card header="Advanced Card" subheader="Subheader" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+  <p-header>
+    <img src="Card" src="https://www.imagen.com.mx/assets/img/imagen_share.png">
+  </p-header>
+  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>
+  <p-footer>
+    <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
+    <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+  </p-footer>
+</p-card>
+
+
+<p-table [value]="usuarios" [paginator]="true" [rows]="1">
   <ng-template pTemplate="header">
     <tr>
       <th *ngFor="let columna of columnas">
@@ -71,6 +93,7 @@
     </tr>
   </ng-template>
 </p-table>
+
 
 <table>
   <!-- tr -> table row  -->

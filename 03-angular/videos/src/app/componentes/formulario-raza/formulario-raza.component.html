@@ -4,19 +4,31 @@
 >
   <div>
     <p *ngIf="inputNombre.errors">
-      Error:
-      <span *ngIf="inputNombre.errors.required">
-        El nombre es requerido
-      </span>
+
+      <p-message
+        *ngIf="inputNombre.errors.required"
+        severity="warn"
+        text="Error: El nombre es requerido"></p-message>
+
     </p>
-    <label for="nombre">Nombre Raza</label>
-    <input id="nombre"
-           required
-           type="text"
-           name="nombre"
-           [(ngModel)]="nombreRaza"
-           #inputNombre="ngModel"
-    >
+    <label [hidden]="true"
+           for="nombre">Nombre Raza</label>
+
+    <div class="ui-inputgroup">
+      <input id="nombre"
+
+             pInputText
+             placeholder="Nombre Raza"
+
+
+             required
+             type="text"
+             name="nombre"
+             [(ngModel)]="nombreRaza"
+             #inputNombre="ngModel"
+      >
+    </div>
+
   </div>
 
   <div>
