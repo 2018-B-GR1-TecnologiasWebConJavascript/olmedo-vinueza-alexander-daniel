@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-const routes: Routes = [];
+import {RutaLoginComponent} from "./rutas/ruta-login/ruta-login.component";
+const routes: Routes = [
+  {
+    path: 'login',
+    component: RutaLoginComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../../../../../../03-angular/videos/src/app/servicios/rest/auth.service";
+import {AuthService} from "../../servicios/rest/auth.service";
 
 @Component({
   selector: 'app-ruta-login',
@@ -13,8 +13,7 @@ export class RutaLoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private readonly _authService: AuthService) {
-  }
+  constructor(private readonly _authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -39,6 +38,5 @@ export class RutaLoginComponent implements OnInit {
       );
 
   }
-
 
 }
