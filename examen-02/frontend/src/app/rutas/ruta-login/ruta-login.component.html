@@ -1,22 +1,29 @@
-<form (submit)="login()">
-  <div>
-    <label for="correo">Correo</label>
-    <input id="correo"
-           name="correo"
-           type="text"
-           [(ngModel)]="usuario.correo"
-    >
-
+<div class="p-grid">
+  <div class="p-col"></div>
+  <div class="p-col">
+    <form #formularioLogin="ngForm"
+          novalidate
+          (submit)="login()">
+      <span class="ui-fluid ui-float-label">
+        <input id="correo" name="correo" type="text" size="30" pInputText [(ngModel)]="usuario.correo">
+        <label for="correo">Correo</label>
+      </span>
+      <div class="p-grid p-dir-col">
+        <div class="p-col"></div>
+        <div class="p-col"></div>
+      </div>
+      <span class="ui-fluid ui-float-label">
+        <input id="password" name="password" type="password" size="30" pInputText [(ngModel)]="usuario.password">
+        <label for="password">Password</label>
+      </span>
+      <div class="p-grid p-dir-col">
+        <div class="p-col"></div>
+        <div class="p-col"></div>
+      </div>
+      <div class="ui-fluid p-justify-center">
+        <button pButton type="button" label="Login" (click)="login()" ></button>
+      </div>
+    </form>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input id="password"
-           name="password"
-           type="password"
-           [(ngModel)]="usuario.password"
-    >
-
-
-    <button>Login</button>
-  </div>
-</form>
+  <div class="p-col"></div>
+</div>
