@@ -32,7 +32,6 @@ export class RutaGestionUsuariosComponent implements OnInit {
     usuarios$
       .subscribe(
         (usuarios: Usuario[]) => {
-          console.log(usuarios);
           this.usuarios = usuarios;
         },
         (error) => {
@@ -44,7 +43,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   eliminar(usuario: Usuario) {
 
-    const usuarioEliminado$ = this._usuarioRestService.delete(usuario.id);
+    const usuarioEliminado$ = this._usuarioRestService.eliminarUsuario(usuario.id);
 
     usuarioEliminado$
       .subscribe(

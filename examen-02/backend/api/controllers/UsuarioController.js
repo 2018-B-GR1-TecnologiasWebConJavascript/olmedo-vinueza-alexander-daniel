@@ -25,7 +25,21 @@ module.exports = {
       return res.badRequest({mensaje:'Correo o contraseña inválidos'});
     }
 
-  }
+  },
 
+  eliminar: async (req, res) => {
+    const parametros = req.allParams();
+    var usuarioEliminado = await Usuario.destroy({
+      id: parametros.idUsuario,
+    }).fetch();
+    const error = usuarioEliminado.length === 0;
+    console.log(usuarioEliminado);
+
+    if(!error){
+      return res.ok(usuarioEliminado);
+    }else{
+      return res.badRequest({mensaje:'Error al eliminar'});
+    }
+  }
 };
 

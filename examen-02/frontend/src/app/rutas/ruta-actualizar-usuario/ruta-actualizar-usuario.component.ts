@@ -12,8 +12,12 @@ import {Rol} from "../../interfaces/rol";
 export class RutaActualizarUsuarioComponent implements OnInit {
 
   roles = [];
-
+  rolesDeUsuario;
   rolSeleccionado: Rol;
+  columnas = [
+    {field: 'nombre', header: 'Rol'},
+    {field: 'id', header: 'Acciones'},
+  ];
 
   usuarioAActualizar: Usuario = {
     id: 0,
@@ -34,6 +38,9 @@ export class RutaActualizarUsuarioComponent implements OnInit {
     rutaActiva$
       .subscribe(
         (parametros: ParametrosRutaActualizarUsuario) => {
+
+          this.findRolPorUsuario(parametros.idUsuario);
+
           const usuario$ = this._usuarioRestService
             .findOneById(parametros.idUsuario);
           usuario$
@@ -53,13 +60,13 @@ export class RutaActualizarUsuarioComponent implements OnInit {
     roles$
       .subscribe(
         (roles: Rol[]) => {
-          console.log(roles);
           this.roles = roles;
         },
         (error) => {
           console.error('Error', error);
         }
       );
+
   }
 
   agregarRol(rolSeleccionado){
@@ -78,7 +85,24 @@ export class RutaActualizarUsuarioComponent implements OnInit {
           console.error(error);
         }
       );
+    this.findRolPorUsuario(this.usuarioAActualizar.id)
   }
+
+  findRolPorUsuario(idUsuario){
+    const roles$ = this._usuarioRestService
+      .findRolPorUsuario(idUsuario);
+    roles$
+      .subscribe(
+        (roles: Rol[]) => {
+          console.log(roles);
+          this.rolesDeUsuario = roles;
+        },
+        (error) => {
+          console.error('Error', error);
+        }
+      );
+  }
+
 
 }
 

@@ -34,10 +34,30 @@ export class UsuarioRestService {
     return roles$;
   }
 
+  findRolPorUsuario(id: number): Observable<any> {
+    // OBSERVABLE
+    const roles$ = this._httpClient
+      .get(environment.url + this.nombreModelo + `/${id}`)
+      .pipe(map((r:any) => r.roles )); //
+
+    return roles$;
+  }
+
   delete(id: number): Observable<Usuario> {
     return this._httpClient
       .delete(environment.url + this.nombreModelo + `/${id}`)
       .pipe(map(r => <Usuario>r)); // Castear
+  }
+
+  eliminarUsuario(idUsuario: number): Observable<Usuario> {
+    const url = environment.url + '/usuario/eliminar';
+
+    return this._httpClient
+      .post(url, {
+        idUsuario: idUsuario,
+      })
+      .pipe(map(r => <Usuario>r)); // Casteo
+
   }
 
   create(nombre: string,
@@ -92,5 +112,7 @@ export class UsuarioRestService {
     return this._httpClient
       .post(url, objetoAGuardar); // Castear
   }
+
+
 
 }
