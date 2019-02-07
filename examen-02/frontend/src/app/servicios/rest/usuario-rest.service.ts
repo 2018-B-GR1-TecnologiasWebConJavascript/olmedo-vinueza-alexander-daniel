@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
@@ -20,7 +20,7 @@ export class UsuarioRestService {
     // OBSERVABLE
     const usuarios$ = this._httpClient
       .get(environment.url + this.nombreModelo)
-      .pipe(map(r => <Usuario[]> r)); //
+      .pipe(map(r => <Usuario[]>r)); //
 
     return usuarios$;
   }
@@ -29,7 +29,7 @@ export class UsuarioRestService {
     // OBSERVABLE
     const roles$ = this._httpClient
       .get(environment.url + '/rol')
-      .pipe(map(r => <Rol[]> r)); //
+      .pipe(map(r => <Rol[]>r)); //
 
     return roles$;
   }
@@ -37,7 +37,7 @@ export class UsuarioRestService {
   delete(id: number): Observable<Usuario> {
     return this._httpClient
       .delete(environment.url + this.nombreModelo + `/${id}`)
-      .pipe(map(r => <Usuario> r)); // Castear
+      .pipe(map(r => <Usuario>r)); // Castear
   }
 
   create(nombre: string,
@@ -56,7 +56,7 @@ export class UsuarioRestService {
 
     return this._httpClient
       .post(url, objetoAGuardar)
-      .pipe(map(r => <Usuario> r)); // Castear
+      .pipe(map(r => <Usuario>r)); // Castear
   }
 
   findOneById(id: number | string): Observable<Usuario> {
@@ -65,7 +65,7 @@ export class UsuarioRestService {
 
     return this._httpClient
       .get(url)
-      .pipe(map(r => <Usuario> r)); // Castear
+      .pipe(map(r => <Usuario>r)); // Castear
   }
 
   updateOneById(usuario: Usuario) {
@@ -75,8 +75,22 @@ export class UsuarioRestService {
 
     return this._httpClient
       .put(url, usuario)
-      .pipe(map(r => <Usuario> r)); // Castear
+      .pipe(map(r => <Usuario>r)); // Castear
 
+  }
+
+  asignarRol(idUsuario: number,
+         idRol: number): Observable<any> {
+
+    const objetoAGuardar = {
+      usuario: idUsuario,
+      rol: idRol
+    };
+
+    const url = environment.url + '/rolesporusuario';
+
+    return this._httpClient
+      .post(url, objetoAGuardar); // Castear
   }
 
 }

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UsuarioRestService} from "../../servicios/rest/usuario-rest.service";
-import {Raza} from "../../../../../../03-angular/videos/src/app/interfaces/raza";
 import {Usuario} from "../../interfaces/usuario";
 import {Rol} from "../../interfaces/rol";
 
@@ -14,12 +13,14 @@ export class RutaActualizarUsuarioComponent implements OnInit {
 
   roles = [];
 
-  rolSeleccionado: any;
+  rolSeleccionado: Rol;
 
-  usuarioAActualizar = {
+  usuarioAActualizar: Usuario = {
+    id: 0,
     nombre: '',
     correo: '',
-    fecha_nacimiento: ''
+    fecha_nacimiento: '',
+    password: ''
   };
 
   constructor(
@@ -59,7 +60,24 @@ export class RutaActualizarUsuarioComponent implements OnInit {
           console.error('Error', error);
         }
       );
-    console.log(this.roles);
+  }
+
+  agregarRol(rolSeleccionado){
+    const respuestaRolUsuario$ = this._usuarioRestService
+      .asignarRol(
+        this.usuarioAActualizar.id,
+        this.rolSeleccionado.id
+      );
+
+    respuestaRolUsuario$
+      .subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
 }
