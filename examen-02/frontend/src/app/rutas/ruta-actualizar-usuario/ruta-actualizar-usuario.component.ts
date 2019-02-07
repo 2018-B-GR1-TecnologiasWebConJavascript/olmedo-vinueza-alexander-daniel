@@ -11,13 +11,18 @@ import {Usuario} from "../../interfaces/usuario";
 })
 export class RutaActualizarUsuarioComponent implements OnInit {
 
-  usuario = {
+  roles = [
+    {name:'Administrador'},
+    {name:'Usuario'}
+  ];
+
+  rolSeleccionado: any;
+
+  usuarioAActualizar = {
     nombre: '',
     correo: '',
     fecha_nacimiento: ''
   };
-
-  usuarioAActualizar: Usuario;
 
   constructor(
     private readonly _activatedRoute: ActivatedRoute,

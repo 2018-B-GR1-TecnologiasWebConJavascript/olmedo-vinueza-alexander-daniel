@@ -10,10 +10,10 @@ import {RutaGestionUsuariosComponent} from "./rutas/ruta-gestion-usuarios/ruta-g
 import {AuthService} from "./servicios/rest/auth.service";
 import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
-import {ButtonModule, InputTextModule} from "primeng/primeng";
+import {ButtonModule, DropdownModule, InputTextModule} from "primeng/primeng";
 import {RutaRegistroComponent} from './rutas/ruta-registro/ruta-registro.component';
 import {RutaActualizarUsuarioComponent} from './rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component';
-import {MatTableModule} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import {MatTableModule} from "@angular/material";
     TableModule,
     InputTextModule,
     ButtonModule,
-    MatTableModule
+    DropdownModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
