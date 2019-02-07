@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {RutaLoginComponent} from './rutas/ruta-login/ruta-login.component';
@@ -12,8 +11,9 @@ import {AuthService} from "./servicios/rest/auth.service";
 import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
 import {ButtonModule, InputTextModule} from "primeng/primeng";
-import { RutaRegistroComponent } from './rutas/ruta-registro/ruta-registro.component';
-import { RutaActualizarUsuarioComponent } from './rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component';
+import {RutaRegistroComponent} from './rutas/ruta-registro/ruta-registro.component';
+import {RutaActualizarUsuarioComponent} from './rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component';
+import {MatTableModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { RutaActualizarUsuarioComponent } from './rutas/ruta-actualizar-usuario/
     FormsModule,
     TableModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
