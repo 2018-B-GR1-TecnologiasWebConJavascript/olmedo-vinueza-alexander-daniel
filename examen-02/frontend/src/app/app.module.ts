@@ -12,6 +12,7 @@ import {AuthService} from "./servicios/rest/auth.service";
 import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
 import {ButtonModule, InputTextModule} from "primeng/primeng";
+import { RutaRegistroComponent } from './rutas/ruta-registro/ruta-registro.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {ButtonModule, InputTextModule} from "primeng/primeng";
     RutaLoginComponent,
     RutaMenuComponent,
     RutaGestionUsuariosComponent,
+    RutaRegistroComponent,
   ],
   imports: [
     BrowserModule,

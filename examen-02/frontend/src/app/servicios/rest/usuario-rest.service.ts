@@ -32,12 +32,14 @@ export class UsuarioRestService {
 
   create(nombre: string,
          correo: string,
-         password: string): Observable<Usuario> {
+         password: string,
+         fecha_nacimiento: string): Observable<Usuario> {
 
     const objetoAGuardar = {
       nombre: nombre,
       correo: correo,
       password: password,
+      fecha_nacimiento: fecha_nacimiento
     };
 
     const url = environment.url + this.nombreModelo;
