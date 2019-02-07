@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UsuarioRestService} from "../../servicios/rest/usuario-rest.service";
 import {Raza} from "../../../../../../03-angular/videos/src/app/interfaces/raza";
 import {Usuario} from "../../interfaces/usuario";
+import {Rol} from "../../interfaces/rol";
 
 @Component({
   selector: 'app-ruta-actualizar-usuario',
@@ -11,10 +12,7 @@ import {Usuario} from "../../interfaces/usuario";
 })
 export class RutaActualizarUsuarioComponent implements OnInit {
 
-  roles = [
-    {name:'Administrador'},
-    {name:'Usuario'}
-  ];
+  roles = [];
 
   rolSeleccionado: any;
 
@@ -37,7 +35,6 @@ export class RutaActualizarUsuarioComponent implements OnInit {
         (parametros: ParametrosRutaActualizarUsuario) => {
           const usuario$ = this._usuarioRestService
             .findOneById(parametros.idUsuario);
-
           usuario$
             .subscribe(
               (usuario: Usuario) => {
@@ -50,6 +47,19 @@ export class RutaActualizarUsuarioComponent implements OnInit {
 
         }
       );
+    const roles$ = this._usuarioRestService
+      .findAllRoles();
+    roles$
+      .subscribe(
+        (roles: Rol[]) => {
+          console.log(roles);
+          this.roles = roles;
+        },
+        (error) => {
+          console.error('Error', error);
+        }
+      );
+    console.log(this.roles);
   }
 
 }

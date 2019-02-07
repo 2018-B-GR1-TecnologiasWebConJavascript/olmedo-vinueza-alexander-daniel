@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
 import {Usuario} from '../../interfaces/usuario';
 import {map} from 'rxjs/operators';
+import {Rol} from "../../interfaces/rol";
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,15 @@ export class UsuarioRestService {
       .pipe(map(r => <Usuario[]> r)); //
 
     return usuarios$;
+  }
+
+  findAllRoles(): Observable<Rol[]> {
+    // OBSERVABLE
+    const roles$ = this._httpClient
+      .get(environment.url + '/rol')
+      .pipe(map(r => <Rol[]> r)); //
+
+    return roles$;
   }
 
   delete(id: number): Observable<Usuario> {
