@@ -13,6 +13,7 @@ import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
 import {ButtonModule, InputTextModule} from "primeng/primeng";
 import { RutaRegistroComponent } from './rutas/ruta-registro/ruta-registro.component';
+import { RutaActualizarUsuarioComponent } from './rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RutaRegistroComponent } from './rutas/ruta-registro/ruta-registro.compo
     RutaMenuComponent,
     RutaGestionUsuariosComponent,
     RutaRegistroComponent,
+    RutaActualizarUsuarioComponent,
   ],
   imports: [
     BrowserModule,

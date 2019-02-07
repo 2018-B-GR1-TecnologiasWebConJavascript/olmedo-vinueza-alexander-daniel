@@ -12,6 +12,7 @@ export class RutaGestionUsuariosComponent implements OnInit {
   usuarios = [];
 
   columnas = [
+    {field: 'id', header: 'Identificador'},
     {field: 'nombre', header: 'Nombre'},
     {field: 'correo', header: 'Correo'},
     {field: 'fecha_nacimiento', header: 'Fecha de Nacimiento'},
