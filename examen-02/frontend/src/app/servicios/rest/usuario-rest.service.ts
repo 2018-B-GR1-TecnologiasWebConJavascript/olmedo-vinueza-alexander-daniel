@@ -60,6 +60,18 @@ export class UsuarioRestService {
 
   }
 
+  eliminarRol(idUsuario: number, idRol: number): Observable<any> {
+    const url = environment.url + '/usuario/eliminarRol';
+
+    return this._httpClient
+      .post(url, {
+        idUsuario: idUsuario,
+        idRol: idRol
+      })
+      .pipe(map(r => <any>r)); // Casteo
+
+  }
+
   create(nombre: string,
          correo: string,
          password: string,

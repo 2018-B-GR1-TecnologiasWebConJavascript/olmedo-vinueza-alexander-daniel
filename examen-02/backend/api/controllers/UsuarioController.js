@@ -40,6 +40,22 @@ module.exports = {
     }else{
       return res.badRequest({mensaje:'Error al eliminar'});
     }
+  },
+
+  eliminarRol: async (req, res) => {
+    const parametros = req.allParams();
+    var usuarioEliminado = await RolesPorUsuario.destroy({
+      rol:parametros.idUsuario,
+      usuario: parametros.idRol
+    }).fetch();
+    const error = usuarioEliminado.length === 0;
+    console.log(usuarioEliminado);
+
+    if(!error){
+      return res.ok(usuarioEliminado);
+    }else{
+      return res.badRequest({mensaje:'Error al eliminar'});
+    }
   }
 };
 

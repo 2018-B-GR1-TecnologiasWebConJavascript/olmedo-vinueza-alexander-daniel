@@ -66,7 +66,6 @@ export class RutaActualizarUsuarioComponent implements OnInit {
           console.error('Error', error);
         }
       );
-
   }
 
   agregarRol(rolSeleccionado){
@@ -103,7 +102,26 @@ export class RutaActualizarUsuarioComponent implements OnInit {
       );
   }
 
+  eliminarRol(rol: Rol) {
 
+    const rolEliminado$ = this._usuarioRestService.eliminarRol(rol.id, this.usuarioAActualizar.id);
+
+    rolEliminado$
+      .subscribe(
+        (rolEliminado) => {
+          console.log('Se elimino:', rolEliminado);
+
+          const indice = this.rolesDeUsuario
+            .findIndex((r) => r.id === rol.id);
+
+          this.rolesDeUsuario.splice(indice, 1);
+
+        },
+        (error) => {
+          console.error('Error', error);
+        }
+      );
+  }
 }
 
 interface ParametrosRutaActualizarUsuario {
