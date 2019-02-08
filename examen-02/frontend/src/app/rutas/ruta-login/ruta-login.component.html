@@ -5,7 +5,12 @@
           novalidate
           (submit)="login()">
       <span class="ui-fluid ui-float-label">
-        <input id="correo" name="correo" type="text" size="30" pInputText [(ngModel)]="usuario.correo">
+        <input id="correo"
+               name="correo"
+               type="text"
+               size="30"
+               required
+               pInputText [(ngModel)]="usuario.correo">
         <label for="correo">Correo</label>
       </span>
       <div class="p-grid p-dir-col">
@@ -13,7 +18,13 @@
         <div class="p-col"></div>
       </div>
       <span class="ui-fluid ui-float-label">
-        <input id="password" name="password" type="password" size="30" pInputText [(ngModel)]="usuario.password">
+        <input id="password"
+               name="password"
+               type="password"
+               size="30"
+               required
+               pInputText
+               [(ngModel)]="usuario.password">
         <label for="password">Password</label>
       </span>
       <div class="p-grid p-dir-col">
@@ -21,7 +32,12 @@
         <div class="p-col"></div>
       </div>
       <div class="ui-fluid p-justify-center">
-        <button pButton type="button" label="Login" (click)="login()"></button>
+        <button [disabled]="formularioLogin.invalid"
+          pButton
+          type="button"
+          label="Login"
+          (click)="login()">
+        </button>
       </div>
     </form>
   </div>
