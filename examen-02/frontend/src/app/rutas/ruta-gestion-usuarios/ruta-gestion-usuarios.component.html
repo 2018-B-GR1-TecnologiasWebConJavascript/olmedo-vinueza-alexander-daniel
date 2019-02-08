@@ -1,7 +1,22 @@
 <h3>Gestion Usuarios</h3>
-
 <br>
-
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+  <div class="ui-inputgroup">
+    <span class="ui-float-label">
+          <input id="search" name="search" type="search" pInputText [(ngModel)]="elementoABuscar">
+          <label for="search">Buscar nombre o correo</label>
+        </span>
+    <div>
+      <button pButton type="button" label="Buscar" (click)="buscar()"></button>
+    </div>
+    <div>
+      <button pButton class="ui-button-secondary" type="button" label="Reset" (click)="reset()"></button>
+    </div>
+  </div>
+  </div>
+</div>
+<br>
 <p-table [value]="usuarios">
   <ng-template pTemplate="header">
     <tr>

@@ -11,6 +11,8 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   usuarios = [];
 
+  elementoABuscar: string;
+
   columnas = [
     {field: 'id', header: 'Identificador'},
     {field: 'nombre', header: 'Nombre'},
@@ -60,8 +62,16 @@ export class RutaGestionUsuariosComponent implements OnInit {
           console.error('Error', error);
         }
       );
+  }
 
+  buscar() {
+    this.usuarios = this.usuarios.filter(usuario =>{
+      return usuario.nombre.includes(this.elementoABuscar) || usuario.correo.includes(this.elementoABuscar)
+    })
+  }
 
+  reset(){
+    this.ngOnInit()
   }
 
 }
