@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../servicios/rest/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ruta-login',
@@ -13,7 +14,7 @@ export class RutaLoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private readonly _authService: AuthService) { }
+  constructor(private readonly _authService: AuthService, private readonly _router: Router) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,11 @@ export class RutaLoginComponent implements OnInit {
       .subscribe(
         (usuario) => {
           this._authService.usuario = usuario;
+          const url = [
+            '/'
+          ];
+          alert('Login exitoso');
+          this._router.navigate(url);
           console.log(usuario);
         },
         (error) => {

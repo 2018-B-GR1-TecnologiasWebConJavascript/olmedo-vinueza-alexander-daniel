@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
         (raza) => {
           this._authService.usuario = raza;
           console.log(raza);
+
         },
         (error) => {
           console.error(error);
