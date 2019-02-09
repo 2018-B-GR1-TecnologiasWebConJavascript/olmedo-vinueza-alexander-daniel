@@ -27,6 +27,8 @@ import { ConductorCrearComponent } from './modulos/modulo-conductor/conductor-cr
 import { FormConductorComponent } from './componentes/form-conductor/form-conductor.component';
 import { ConductorActualizarComponent } from './modulos/modulo-conductor/conductor-actualizar/conductor-actualizar.component';
 import { AutoVisualizarComponent } from './modulos/modulo-auto/auto-visualizar/auto-visualizar.component';
+import { AutoCrearComponent } from './modulos/modulo-auto/auto-crear/auto-crear.component';
+import { FormAutoComponent } from './componentes/form-auto/form-auto.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AutoVisualizarComponent } from './modulos/modulo-auto/auto-visualizar/a
     FormConductorComponent,
     ConductorActualizarComponent,
     AutoVisualizarComponent,
+    AutoCrearComponent,
+    FormAutoComponent,
   ],
   imports: [
     BrowserModule,

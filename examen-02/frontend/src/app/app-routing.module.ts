@@ -10,6 +10,7 @@ import {ConductorVisualizarComponent} from "./modulos/modulo-conductor/conductor
 import {ConductorCrearComponent} from "./modulos/modulo-conductor/conductor-crear/conductor-crear.component";
 import {ConductorActualizarComponent} from "./modulos/modulo-conductor/conductor-actualizar/conductor-actualizar.component";
 import {AutoVisualizarComponent} from "./modulos/modulo-auto/auto-visualizar/auto-visualizar.component";
+import {AutoCrearComponent} from "./modulos/modulo-auto/auto-crear/auto-crear.component";
 
 const routes: Routes = [
   {
@@ -59,11 +60,11 @@ const routes: Routes = [
       {
         path: 'gestionAuto',
         component: AutoVisualizarComponent,
+      },
+      {
+        path: 'crearAuto',
+        component: AutoCrearComponent,
       }]
-    //   {
-    //     path: 'crearAuto',
-    //     component: AutoCrearComponent,
-    //   },
     //   {
     //     path: 'actualizarAuto/:idAuto',
     //     component: AutoActualizarComponent,
