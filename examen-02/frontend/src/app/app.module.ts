@@ -33,6 +33,7 @@ import { AutoActualizarComponent } from './modulos/modulo-auto/auto-actualizar/a
 import { EventoVerComponent } from './modulos/modulo-evento/evento-ver/evento-ver.component';
 import { EventoCrearComponent } from './modulos/modulo-evento/evento-crear/evento-crear.component';
 import { FormEventoComponent } from './componentes/form-evento/form-evento.component';
+import { EventoActualizarComponent } from './modulos/modulo-evento/evento-actualizar/evento-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { FormEventoComponent } from './componentes/form-evento/form-evento.compo
     EventoVerComponent,
     EventoCrearComponent,
     FormEventoComponent,
+    EventoActualizarComponent,
   ],
   imports: [
     BrowserModule,

@@ -54,6 +54,7 @@ export class RutaLoginComponent implements OnInit {
           console.log(usuario);
         },
         (error) => {
+          alert('Verifique el usuario y la contraseña');
           console.error(error);
         }
       );
