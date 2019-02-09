@@ -9,6 +9,7 @@ import {UsuarioMainComponent} from "./modulos/usuario-main/usuario-main.componen
 import {ConductorVisualizarComponent} from "./modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component";
 import {ConductorCrearComponent} from "./modulos/modulo-conductor/conductor-crear/conductor-crear.component";
 import {ConductorActualizarComponent} from "./modulos/modulo-conductor/conductor-actualizar/conductor-actualizar.component";
+import {AutoVisualizarComponent} from "./modulos/modulo-auto/auto-visualizar/auto-visualizar.component";
 
 const routes: Routes = [
   {
@@ -54,11 +55,11 @@ const routes: Routes = [
       {
         path: 'actualizarConductor/:idConductor',
         component: ConductorActualizarComponent,
+      },
+      {
+        path: 'gestionAuto',
+        component: AutoVisualizarComponent,
       }]
-    //   {
-    //     path: 'gestionConductor',
-    //     component: AutoVisualizarComponent,
-    //   },
     //   {
     //     path: 'crearAuto',
     //     component: AutoCrearComponent,
