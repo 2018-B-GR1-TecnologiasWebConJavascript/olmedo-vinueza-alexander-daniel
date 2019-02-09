@@ -19,6 +19,11 @@
   </div>
   <div class="p-col">
     <h1>Roles</h1>
+    <p *ngIf="registroRepetido">
+      <p-message
+        severity="warn"
+        text="Error: El rol ya existe"></p-message>
+    </p>
     <p-table [value]="rolesDeUsuario">
       <ng-template pTemplate="header">
         <tr>

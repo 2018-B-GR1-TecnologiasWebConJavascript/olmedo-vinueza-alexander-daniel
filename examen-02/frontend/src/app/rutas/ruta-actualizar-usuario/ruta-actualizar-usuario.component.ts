@@ -10,10 +10,10 @@ import {Rol} from "../../interfaces/rol";
   styleUrls: ['./ruta-actualizar-usuario.component.css']
 })
 export class RutaActualizarUsuarioComponent implements OnInit {
-
+  registroRepetido=false;
   roles = [];
   rolesDeUsuario;
-  rolSeleccionado: Rol;
+  rolSeleccionado: Rol = {createdAt: 1549688609424, updatedAt: 1549688609424, id: 1, nombre: "Administrador"};
   columnas = [
     {field: 'nombre', header: 'Rol'},
     {field: 'id', header: 'Acciones'},
@@ -31,7 +31,8 @@ export class RutaActualizarUsuarioComponent implements OnInit {
     private readonly _activatedRoute: ActivatedRoute,
     private readonly _usuarioRestService: UsuarioRestService,
     private readonly _router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     const rutaActiva$ = this._activatedRoute.params;
@@ -68,26 +69,31 @@ export class RutaActualizarUsuarioComponent implements OnInit {
       );
   }
 
-  agregarRol(rolSeleccionado){
-    const respuestaRolUsuario$ = this._usuarioRestService
-      .asignarRol(
-        this.usuarioAActualizar.id,
-        this.rolSeleccionado.id
-      );
+  agregarRol(rolSeleccionado) {
 
-    respuestaRolUsuario$
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    this.findRolPorUsuario(this.usuarioAActualizar.id)
+    if(this.rolesDeUsuario.some((rol)=>{return rol.nombre===this.rolSeleccionado.nombre})){
+      this.registroRepetido = true;
+    } else {
+      this.registroRepetido=false;
+      const respuestaRolUsuario$ = this._usuarioRestService
+        .asignarRol(
+          this.usuarioAActualizar.id,
+          this.rolSeleccionado.id
+        );
+
+      respuestaRolUsuario$
+        .subscribe(
+          (res) => {
+            this.findRolPorUsuario(this.usuarioAActualizar.id)
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+    }
   }
 
-  findRolPorUsuario(idUsuario){
+  findRolPorUsuario(idUsuario) {
     const roles$ = this._usuarioRestService
       .findRolPorUsuario(idUsuario);
     roles$

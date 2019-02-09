@@ -10,7 +10,14 @@ import {RutaGestionUsuariosComponent} from "./rutas/ruta-gestion-usuarios/ruta-g
 import {AuthService} from "./servicios/rest/auth.service";
 import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
-import {ButtonModule, DropdownModule, InputTextModule, ToolbarModule} from "primeng/primeng";
+import {
+  ButtonModule,
+  DropdownModule,
+  InputTextModule,
+  MessageModule,
+  MessagesModule,
+  ToolbarModule
+} from "primeng/primeng";
 import {RutaRegistroComponent} from './rutas/ruta-registro/ruta-registro.component';
 import {RutaActualizarUsuarioComponent} from './rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -34,7 +41,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ButtonModule,
     DropdownModule,
     BrowserAnimationsModule,
-    ToolbarModule
+    ToolbarModule,
+    MessagesModule,
+    MessageModule
   ],
   providers: [
     AuthService,

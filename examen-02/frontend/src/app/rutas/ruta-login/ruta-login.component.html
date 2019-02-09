@@ -2,21 +2,32 @@
   <div class="p-col"></div>
   <div class="p-col">
     <form #formularioLogin="ngForm"
-          novalidate
           (submit)="login()">
+      <p *ngIf="inputCorreo.errors&&inputCorreo.touched">
+        <p-message
+          *ngIf="inputCorreo.errors.required"
+          severity="warn"
+          text="Error: El correo es requerido"></p-message>
+      </p>
       <span class="ui-fluid ui-float-label">
         <input id="correo"
                name="correo"
-               type="text"
-               size="30"
+               type="email"
                required
-               pInputText [(ngModel)]="usuario.correo">
+               pInputText [(ngModel)]="usuario.correo"
+               #inputCorreo="ngModel">
         <label for="correo">Correo</label>
       </span>
       <div class="p-grid p-dir-col">
         <div class="p-col"></div>
         <div class="p-col"></div>
       </div>
+      <p *ngIf="inputPassword.errors&&inputPassword.touched">
+        <p-message
+          *ngIf="inputPassword.errors.required"
+          severity="warn"
+          text="Error: La contraseña es requerida"></p-message>
+      </p>
       <span class="ui-fluid ui-float-label">
         <input id="password"
                name="password"
@@ -24,7 +35,8 @@
                size="30"
                required
                pInputText
-               [(ngModel)]="usuario.password">
+               [(ngModel)]="usuario.password"
+               #inputPassword="ngModel">
         <label for="password">Password</label>
       </span>
       <div class="p-grid p-dir-col">
