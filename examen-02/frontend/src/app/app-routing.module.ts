@@ -5,7 +5,8 @@ import {RutaGestionUsuariosComponent} from './rutas/ruta-gestion-usuarios/ruta-g
 import {RutaMenuComponent} from "./rutas/ruta-menu/ruta-menu.component";
 import {RutaRegistroComponent} from "./rutas/ruta-registro/ruta-registro.component";
 import {RutaActualizarUsuarioComponent} from "./rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component";
-import {UsuarioMainComponent} from "./Modulos/usuario-main/usuario-main.component";
+import {UsuarioMainComponent} from "./modulos/usuario-main/usuario-main.component";
+import {ConductorVisualizarComponent} from "./modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component";
 
 const routes: Routes = [
   {
@@ -33,25 +34,23 @@ const routes: Routes = [
   {
     path: 'usuario',
     component: UsuarioMainComponent,
-    // children:[
+    children:[
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'gestionConductor',
+      },
+      {
+        path: 'gestionConductor',
+        component: ConductorVisualizarComponent,
+
+      }]
     //   {
-    //     path: '',
-    //     pathMatch: 'full',
-    //     redirectTo: 'gestionUsuario',
+    //     path: 'crearConductor',
+    //     component: ConductorCrearComponent,
     //   },
     //   {
-    //     path: 'gestionUsuario',
-    //     component: UsuarioVisualizarComponent,
-    //     canActivate: [
-    //       IsUsuarioServiceService
-    //     ]
-    //   },
-    //   {
-    //     path: 'crearPaciente',
-    //     component: PacienteCrearComponent,
-    //   },
-    //   {
-    //     path: 'actualizarPaciente/:idPaciente',
+    //     path: 'actualizarConductor/:idConductor',
     //     component: UsuarioActualizarComponent,
     //   },
     //   {

@@ -1,0 +1,34 @@
+<div>
+  <a routerLink="/Usuario/crearConductor">
+    <button>Crear Conductor</button>
+  </a>
+  <br>
+  <div>
+    <table>
+      <tr>
+        <h3>Conductores</h3>
+      </tr>
+      <tr>
+        <th> Nombres</th>
+        <th> Apellidos </th>
+        <th> Fecha Nacimiento</th>
+        <th> Numero de autos</th>
+        <th> Licencia Valida</th>
+        <th> Acciones</th>
+      </tr>
+      <tr *ngFor="let conductor  of conductores">
+        <th>{{conductor.nombres}}</th>
+        <th>{{conductor.apellidos}}</th>
+        <th>{{conductor.fechaNacimiento}}</th>
+        <th>{{conductor.numeroAutos}}</th>
+        <th>{{conductor.licenciaValida}}</th>
+        <th>
+          <a [routerLink]="['/Usuario','actualizarConductor',conductor.id]">
+            <button>Actualizar</button>
+          </a>
+          <button (click)="eliminarConductor(conductor.id)" >Eliminar</button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</div>
