@@ -46,7 +46,8 @@ export class RutaLoginComponent implements OnInit {
             }
           );
           const url = [
-            '/'
+            '/',
+            'usuario'
           ];
           alert('Login exitoso');
           this._router.navigate(url);
