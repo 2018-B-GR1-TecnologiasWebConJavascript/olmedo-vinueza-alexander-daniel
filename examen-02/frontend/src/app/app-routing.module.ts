@@ -15,6 +15,8 @@ import {AutoActualizarComponent} from "./modulos/modulo-auto/auto-actualizar/aut
 import {EventoVerComponent} from "./modulos/modulo-evento/evento-ver/evento-ver.component";
 import {EventoCrearComponent} from "./modulos/modulo-evento/evento-crear/evento-crear.component";
 import {EventoActualizarComponent} from "./modulos/modulo-evento/evento-actualizar/evento-actualizar.component";
+import {EventoVisualizarComponent} from "./modulos/modulo-evento/evento-visualizar/evento-visualizar.component";
+import {EventoVerAutoComponent} from "./modulos/modulo-evento/evento-ver-auto/evento-ver-auto.component";
 
 const routes: Routes = [
   {
@@ -84,18 +86,17 @@ const routes: Routes = [
       {
         path: 'actualizarEvento/:idEvento',
         component:EventoActualizarComponent,
+      },
+      {
+        path: 'eventos',
+        component: EventoVisualizarComponent,
+        children: [
+          {
+            path: 'autos/:idEvento',
+            component: EventoVerAutoComponent
+          }
+        ]
       }]
-
-    //   {
-    //     path: 'Eventos',
-    //     component: EventoVisualizarComponent,
-    //     children: [
-    //       {
-    //         path: 'Autos/:idEvento',
-    //         component: EventoVerAutoComponent
-    //       }
-    //     ]
-    //   },
     //   {
     //     path: 'eventAuto',
     //     component: EventoAutoMainComponent,
