@@ -12,6 +12,7 @@ import {ConductorActualizarComponent} from "./modulos/modulo-conductor/conductor
 import {AutoVisualizarComponent} from "./modulos/modulo-auto/auto-visualizar/auto-visualizar.component";
 import {AutoCrearComponent} from "./modulos/modulo-auto/auto-crear/auto-crear.component";
 import {AutoActualizarComponent} from "./modulos/modulo-auto/auto-actualizar/auto-actualizar.component";
+import {EventoVerComponent} from "./modulos/modulo-evento/evento-ver/evento-ver.component";
 
 const routes: Routes = [
   {
@@ -69,11 +70,11 @@ const routes: Routes = [
       {
         path: 'actualizarAuto/:idAuto',
         component: AutoActualizarComponent,
+      },
+      {
+        path: 'gestionEvento',
+        component: EventoVerComponent,
       }]
-    //   {
-    //     path: 'gestionEvento',
-    //     component: EventoVerComponent,
-    //   },
     //   {
     //     path: 'actualizarEvento/:idEvento',
     //     component:EventoActualizarComponent,

@@ -12,6 +12,10 @@ module.exports = {
         type: 'String',
         required: true,
       },
+      lugar:{
+        type: 'String',
+        required: true,
+      },
       fecha:{
         type: 'String'
       },
