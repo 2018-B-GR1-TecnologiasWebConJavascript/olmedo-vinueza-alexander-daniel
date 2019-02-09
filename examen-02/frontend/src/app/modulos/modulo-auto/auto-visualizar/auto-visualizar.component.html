@@ -18,17 +18,17 @@
         <th> Conductor</th>
       </tr>
       <tr *ngFor="let auto  of autos">
-        <th>{{auto.chasis}}</th>
-        <th>{{auto.nombreMarca}}</th>
-        <th>{{auto.colorUno}}</th>
-        <th>{{auto.colorDos}}</th>
-        <th>{{auto.nombreModelo}}</th>
-        <th>{{auto.anio}}</th>
+        <td>{{auto.chasis}}</td>
+        <td>{{auto.nombreMarca}}</td>
+        <td>{{auto.colorUno}}</td>
+        <td>{{auto.colorDos}}</td>
+        <td>{{auto.nombreModelo}}</td>
+        <td>{{auto.anio}}</td>
         <div *ngIf="auto.idConductor">
-          <th>{{auto.idConductor.nombres}}</th>
+          <td>{{auto.idConductor.nombres}}</td>
         </div>
         <div *ngIf="!auto.idConductor">
-          <th></th>
+          <td></td>
         </div>
         <th>
           <a [routerLink]="['/usuario','actualizarAuto',auto.id]">

@@ -11,7 +11,7 @@ import {AuthService} from "./servicios/rest/auth.service";
 import {UsuarioRestService} from "./servicios/rest/usuario-rest.service";
 import {TableModule} from "primeng/table";
 import {
-  ButtonModule,
+  ButtonModule, CardModule,
   DropdownModule,
   InputTextModule,
   MessageModule,
@@ -36,6 +36,7 @@ import { FormEventoComponent } from './componentes/form-evento/form-evento.compo
 import { EventoActualizarComponent } from './modulos/modulo-evento/evento-actualizar/evento-actualizar.component';
 import { EventoVisualizarComponent } from './modulos/modulo-evento/evento-visualizar/evento-visualizar.component';
 import { EventoVerAutoComponent } from './modulos/modulo-evento/evento-ver-auto/evento-ver-auto.component';
+import { ListaAutosComponent } from './componentes/lista-autos/lista-autos.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { EventoVerAutoComponent } from './modulos/modulo-evento/evento-ver-auto/
     EventoActualizarComponent,
     EventoVisualizarComponent,
     EventoVerAutoComponent,
+    ListaAutosComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { EventoVerAutoComponent } from './modulos/modulo-evento/evento-ver-auto/
     BrowserAnimationsModule,
     ToolbarModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    CardModule,
   ],
   providers: [
     AuthService,

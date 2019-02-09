@@ -23,6 +23,7 @@ module.exports.routes = {
   'POST /Usuario/login': 'UsuarioController.login',
   'POST /Usuario/eliminar': 'UsuarioController.eliminar',
   'POST /Usuario/eliminarRol': 'UsuarioController.eliminarRol',
+  'POST /EventoPorAuto/Autos': 'EventoPorAutoController.autos',
 
 
   /***************************************************************************

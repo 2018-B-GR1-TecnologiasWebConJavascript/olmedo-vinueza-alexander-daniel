@@ -18,14 +18,14 @@
           <th>Accion</th>
         </tr>
         <tr *ngFor="let evento  of eventos">
-          <th>{{evento.nombre}}</th>
-          <th>{{evento.lugar}}</th>
-          <th>{{evento.fecha}}</th>
-          <th>
+          <td>{{evento.nombre}}</td>
+          <td>{{evento.lugar}}</td>
+          <td>{{evento.fecha}}</td>
+          <td>
             <a [routerLink]="['/usuario','actualizarEvento',evento.id]">
               <button>Actualizar</button>
             </a>
-          </th>
+          </td>
         </tr>
       </table>
     </div>

@@ -17,17 +17,17 @@
         <th> Acciones</th>
       </tr>
       <tr *ngFor="let conductor  of conductores">
-        <th>{{conductor.nombres}}</th>
-        <th>{{conductor.apellidos}}</th>
-        <th>{{conductor.fechaNacimiento}}</th>
-        <th>{{conductor.numeroAutos}}</th>
-        <th>{{conductor.licenciaValida}}</th>
-        <th>
+        <td>{{conductor.nombres}}</td>
+        <td>{{conductor.apellidos}}</td>
+        <td>{{conductor.fechaNacimiento}}</td>
+        <td>{{conductor.numeroAutos}}</td>
+        <td>{{conductor.licenciaValida}}</td>
+        <td>
           <a [routerLink]="['/usuario','actualizarConductor',conductor.id]">
             <button>Actualizar</button>
           </a>
           <button (click)="eliminarConductor(conductor.id)" >Eliminar</button>
-        </th>
+        </td>
       </tr>
     </table>
   </div>

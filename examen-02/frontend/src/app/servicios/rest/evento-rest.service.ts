@@ -31,12 +31,12 @@ export class EventoRestService {
     return eventos$;
   }
 
-  findMedicamentByEvento(id: number | string):Observable<EventoAutoInterface[]>{
+  findAutoByEvento(id: number | string):Observable<EventoAutoInterface[]>{
     const objeto = {
       id: id
     };
     const autos$ = this._httpClient
-      .post(environment.url + "/eventopoauto/autos",objeto)
+      .post(environment.url + "/eventoporauto/autos",objeto)
       .pipe(map(e =>  <EventoAutoInterface[]> e));
     return autos$;
   }
