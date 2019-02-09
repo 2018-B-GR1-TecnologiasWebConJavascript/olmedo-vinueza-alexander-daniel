@@ -1,20 +1,19 @@
 <h3>Gestion Usuarios</h3>
 <br>
-<div class="ui-g ui-fluid">
-  <div class="ui-g-12 ui-md-4">
-  <div class="ui-inputgroup">
-    <span class="ui-float-label">
+<div>
+  <span class="ui-fluid ui-float-label">
           <input id="search" name="search" type="search" pInputText [(ngModel)]="elementoABuscar">
           <label for="search">Buscar nombre o correo</label>
         </span>
+  <span class="p-justify-end ui-inputgroup">
+
     <div>
       <button pButton type="button" label="Buscar" (click)="buscar()"></button>
     </div>
     <div>
       <button pButton class="ui-button-secondary" type="button" label="Reset" (click)="reset()"></button>
     </div>
-  </div>
-  </div>
+  </span>
 </div>
 <br>
 <p-table [value]="usuarios">
@@ -51,13 +50,6 @@
                       class="ui-button-info">
               </button>
             </a>
-
-            <!--<a [routerLink]="['/menu','actualizar-usuario',usuario.id]">-->
-              <!--<button pButton-->
-                      <!--label="Actualizar"-->
-                      <!--class="ui-button-warning">-->
-              <!--</button>-->
-            <!--</a>-->
 
           </div>
 
