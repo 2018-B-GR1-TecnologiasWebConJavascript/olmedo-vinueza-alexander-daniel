@@ -42,14 +42,14 @@ export class EventoRestService {
   }
 
   create(evento:Evento): Observable<Evento> {
-    const url = environment.url + '/Evento';
+    const url = environment.url + '/evento';
     return this._httpClient
       .post(url, evento)
       .pipe(map(r => <Evento> r)); // Castear
   }
 
   updateEvento(evento: Evento) {
-    const url = environment.url + '/Evento'
+    const url = environment.url + '/evento'
       + '/' + evento.id;
     const objeto = {
       nombre: evento.nombre,

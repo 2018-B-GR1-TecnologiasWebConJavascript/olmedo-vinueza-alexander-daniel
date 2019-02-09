@@ -31,6 +31,8 @@ import { AutoCrearComponent } from './modulos/modulo-auto/auto-crear/auto-crear.
 import { FormAutoComponent } from './componentes/form-auto/form-auto.component';
 import { AutoActualizarComponent } from './modulos/modulo-auto/auto-actualizar/auto-actualizar.component';
 import { EventoVerComponent } from './modulos/modulo-evento/evento-ver/evento-ver.component';
+import { EventoCrearComponent } from './modulos/modulo-evento/evento-crear/evento-crear.component';
+import { FormEventoComponent } from './componentes/form-evento/form-evento.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { EventoVerComponent } from './modulos/modulo-evento/evento-ver/evento-ve
     FormAutoComponent,
     AutoActualizarComponent,
     EventoVerComponent,
+    EventoCrearComponent,
+    FormEventoComponent,
   ],
   imports: [
     BrowserModule,

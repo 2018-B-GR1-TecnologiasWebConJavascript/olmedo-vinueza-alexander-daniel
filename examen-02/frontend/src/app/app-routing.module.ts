@@ -13,6 +13,7 @@ import {AutoVisualizarComponent} from "./modulos/modulo-auto/auto-visualizar/aut
 import {AutoCrearComponent} from "./modulos/modulo-auto/auto-crear/auto-crear.component";
 import {AutoActualizarComponent} from "./modulos/modulo-auto/auto-actualizar/auto-actualizar.component";
 import {EventoVerComponent} from "./modulos/modulo-evento/evento-ver/evento-ver.component";
+import {EventoCrearComponent} from "./modulos/modulo-evento/evento-crear/evento-crear.component";
 
 const routes: Routes = [
   {
@@ -74,15 +75,16 @@ const routes: Routes = [
       {
         path: 'gestionEvento',
         component: EventoVerComponent,
+      },
+      {
+        path: 'crearEvento',
+        component: EventoCrearComponent,
       }]
     //   {
     //     path: 'actualizarEvento/:idEvento',
     //     component:EventoActualizarComponent,
     //   },
-    //   {
-    //     path: 'crearEvento',
-    //     component: EventoCrearComponent,
-    //   },
+
     //   {
     //     path: 'Eventos',
     //     component: EventoVisualizarComponent,
