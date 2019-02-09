@@ -19,6 +19,8 @@ export class AuthService {
     correo: 'olmedo2408@gmail.com'
   };
 
+  roles: any;
+
   constructor(private readonly _httpClient: HttpClient) {
 
   }

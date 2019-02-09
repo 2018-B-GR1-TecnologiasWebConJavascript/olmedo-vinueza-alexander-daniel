@@ -35,7 +35,6 @@ export class UsuarioRestService {
   }
 
   findRolPorUsuario(id: number): Observable<any> {
-    // OBSERVABLE
     const roles$ = this._httpClient
       .get(environment.url + this.nombreModelo + `/${id}`)
       .pipe(map((r:any) => r.roles )); //
