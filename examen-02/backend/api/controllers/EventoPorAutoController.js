@@ -8,10 +8,10 @@
 module.exports = {
   autos: async (req, res) => {
     const parametros = req.allParams();
+    console.log(parametros.id);
     var eventoAutos = await EventoPorAuto.find(
       { idEvento: parametros.id }
     ).populate('idAuto');
-    console.log(eventoAutos);
     if(eventoAutos){
       return res.ok(eventoAutos);
     }else{

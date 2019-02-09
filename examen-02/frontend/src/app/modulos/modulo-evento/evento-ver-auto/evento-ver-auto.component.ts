@@ -24,7 +24,6 @@ export class EventoVerAutoComponent implements OnInit {
     rutaActiva$
       .subscribe(
         (parametros) => {
-          console.log(parametros.idEvento);
           const auto$ = this._eventoRest.findAutoByEvento(parametros.idEvento);
           const evento$ =  this._eventoRest.findEventoById(parametros.idEvento);
           evento$.subscribe(
