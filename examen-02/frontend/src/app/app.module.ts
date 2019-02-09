@@ -23,6 +23,8 @@ import {RutaActualizarUsuarioComponent} from './rutas/ruta-actualizar-usuario/ru
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { UsuarioMainComponent } from './modulos/usuario-main/usuario-main.component';
 import { ConductorVisualizarComponent } from './modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component';
+import { ConductorCrearComponent } from './modulos/modulo-conductor/conductor-crear/conductor-crear.component';
+import { FormConductorComponent } from './componentes/form-conductor/form-conductor.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ConductorVisualizarComponent } from './modulos/modulo-conductor/conduct
     RutaActualizarUsuarioComponent,
     UsuarioMainComponent,
     ConductorVisualizarComponent,
+    ConductorCrearComponent,
+    FormConductorComponent,
   ],
   imports: [
     BrowserModule,

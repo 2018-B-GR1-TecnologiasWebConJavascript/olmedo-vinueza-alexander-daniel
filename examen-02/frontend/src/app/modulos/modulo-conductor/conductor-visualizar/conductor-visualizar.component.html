@@ -1,5 +1,5 @@
 <div>
-  <a routerLink="/Usuario/crearConductor">
+  <a routerLink="/usuario/crearConductor">
     <button>Crear Conductor</button>
   </a>
   <br>
@@ -23,7 +23,7 @@
         <th>{{conductor.numeroAutos}}</th>
         <th>{{conductor.licenciaValida}}</th>
         <th>
-          <a [routerLink]="['/Usuario','actualizarConductor',conductor.id]">
+          <a [routerLink]="['/usuario','actualizarConductor',conductor.id]">
             <button>Actualizar</button>
           </a>
           <button (click)="eliminarConductor(conductor.id)" >Eliminar</button>

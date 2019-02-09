@@ -7,6 +7,7 @@ import {RutaRegistroComponent} from "./rutas/ruta-registro/ruta-registro.compone
 import {RutaActualizarUsuarioComponent} from "./rutas/ruta-actualizar-usuario/ruta-actualizar-usuario.component";
 import {UsuarioMainComponent} from "./modulos/usuario-main/usuario-main.component";
 import {ConductorVisualizarComponent} from "./modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component";
+import {ConductorCrearComponent} from "./modulos/modulo-conductor/conductor-crear/conductor-crear.component";
 
 const routes: Routes = [
   {
@@ -44,11 +45,11 @@ const routes: Routes = [
         path: 'gestionConductor',
         component: ConductorVisualizarComponent,
 
+      },
+      {
+        path: 'crearConductor',
+        component: ConductorCrearComponent,
       }]
-    //   {
-    //     path: 'crearConductor',
-    //     component: ConductorCrearComponent,
-    //   },
     //   {
     //     path: 'actualizarConductor/:idConductor',
     //     component: UsuarioActualizarComponent,
