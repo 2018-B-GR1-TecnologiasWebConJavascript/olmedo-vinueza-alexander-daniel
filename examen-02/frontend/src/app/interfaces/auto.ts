@@ -8,5 +8,5 @@ export interface Auto {
   colorDos:string;
   nombreModelo:string;
   anio: number;
-  idConductor: number |string | Conductor
+  idConductor: number |string | Conductor;
 }
