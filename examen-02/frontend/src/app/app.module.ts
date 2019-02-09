@@ -25,6 +25,7 @@ import { UsuarioMainComponent } from './modulos/usuario-main/usuario-main.compon
 import { ConductorVisualizarComponent } from './modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component';
 import { ConductorCrearComponent } from './modulos/modulo-conductor/conductor-crear/conductor-crear.component';
 import { FormConductorComponent } from './componentes/form-conductor/form-conductor.component';
+import { ConductorActualizarComponent } from './modulos/modulo-conductor/conductor-actualizar/conductor-actualizar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormConductorComponent } from './componentes/form-conductor/form-conduc
     ConductorVisualizarComponent,
     ConductorCrearComponent,
     FormConductorComponent,
+    ConductorActualizarComponent,
   ],
   imports: [
     BrowserModule,

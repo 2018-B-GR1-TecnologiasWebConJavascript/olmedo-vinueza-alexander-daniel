@@ -8,6 +8,7 @@ import {RutaActualizarUsuarioComponent} from "./rutas/ruta-actualizar-usuario/ru
 import {UsuarioMainComponent} from "./modulos/usuario-main/usuario-main.component";
 import {ConductorVisualizarComponent} from "./modulos/modulo-conductor/conductor-visualizar/conductor-visualizar.component";
 import {ConductorCrearComponent} from "./modulos/modulo-conductor/conductor-crear/conductor-crear.component";
+import {ConductorActualizarComponent} from "./modulos/modulo-conductor/conductor-actualizar/conductor-actualizar.component";
 
 const routes: Routes = [
   {
@@ -49,11 +50,11 @@ const routes: Routes = [
       {
         path: 'crearConductor',
         component: ConductorCrearComponent,
+      },
+      {
+        path: 'actualizarConductor/:idConductor',
+        component: ConductorActualizarComponent,
       }]
-    //   {
-    //     path: 'actualizarConductor/:idConductor',
-    //     component: UsuarioActualizarComponent,
-    //   },
     //   {
     //     path: 'gestionConductor',
     //     component: AutoVisualizarComponent,
